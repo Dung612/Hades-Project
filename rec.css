@@ -1,0 +1,40 @@
+.reccuitment{
+    width: 100%;
+    height: auto;
+    margin-top:40px ;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: Oswald;
+    padding: 20px;
+    flex-wrap: nowrap;
+}
+.contentrec{
+    width: 23%;
+}
+
+.imgrec img{
+    object-fit: cover;
+    width: 100%;
+    transition: .4s;
+}
+.titlerec{
+    font-weight: bold;
+    font-size: 14px;
+    margin: 6px 0;
+}
+.textrec{
+    font-size: 11px;
+}
+.contentrec .imgrec {
+    overflow: hidden;
+    
+}
+.contentrec:hover .imgrec img{
+    transform: scale(1.1);
+}
+h2{
+    margin-top: 100px;
+    text-align: center;
+    font-weight: bold;
+    font-family: Oswald;
+}

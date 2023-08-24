@@ -1,0 +1,242 @@
+{
+    "categories": [
+      {
+        "id": 1,
+        "name": "Áo"
+      },
+      {
+        "id": 2,
+        "name": "Quần"
+      },
+      {
+        "id": 3,
+        "name": "Mũ"
+      },
+      {
+        "id": 4,
+        "name": "jacket"
+      },
+      {
+        "id": 5,
+        "name": "Túi"
+      },
+      {
+        "id": 6,
+        "name": "tất"
+      }
+    ],
+    "products": [
+      {
+        "id": 1,
+        "name": "OCEAN MEDITATION BOXY TEE",
+        "categoryId": 1,
+        "color": "black",
+        "size": "S",
+        "anh1":"./accsent/img/dsc05233_f4651fc12ce24ac28d00ff705d483daf_grande.webp",
+        "anh2":"./accsent/img/hd_thang_8.webp",
+        "price": 420000
+        
+
+      },
+      {
+        "id": 2,
+        "name": "RAYBACK BABY TEE",
+        "categoryId": 1,
+        "color": "black",
+        "size": "M",
+        "anh1":"./accsent/img/ao2.webp",
+        "anh2":"./accsent/img/anhbgao2.webp",
+        "price": 395000
+      },
+      {
+        "id": 3,
+        "name": "NEIL MOON TEE",
+        "categoryId": 1,
+        "color": "black",
+        "size": "L",
+        "anh1":"./accsent/img/ao3.webp",
+        "anh2":"./accsent/img/anhbgao3.webp",
+        "price": 420000
+      },
+
+      {
+        "id": 4,
+        "name": "REVET EGO TEE",
+        "categoryId": 1,
+        "color": "black",
+        "size": "S",
+        "anh1":"./accsent/img/ao4.webp",
+        "anh2":"./accsent/img/anhbgao4.webp",
+        "price": 420000
+      },
+
+      {
+        "id": 1,
+        "name": "ROBUST SHORTS",
+        "categoryId": 2,
+        "color": "black",
+        "size": "S",
+        "anh1":"./accsent/img/quan1.webp",
+        "anh2":"./accsent/img/bgquan1.webp",
+        "price": 450000
+        
+
+      },
+      {
+        "id": 2,
+        "name": "CONVERZIONE PARACHUTE PANTS",
+        "categoryId": 2,
+        "color": "black",
+        "size": "S",
+        "anh1":"./accsent/img/quan2.webp",
+        "anh2":"./accsent/img/bgquan2.webp",
+        "price": 750000
+        
+
+      },
+      {
+        "id": 3,
+        "name": "ADAM SPREAD JEANS",
+        "categoryId": 2,
+        "color": "black",
+        "size": "S",
+        "anh1":"./accsent/img/quan3.webp",
+        "anh2":"./accsent/img/bgquan3.webp",
+        "price": 750000
+        
+
+      },
+      {
+        "id": 4,
+        "name": "WAVELENGTH PARACHUTE PANTS",
+        "categoryId": 2,
+        "color": "black",
+        "size": "S",
+        "anh1":"./accsent/img/quan4.webp",
+        "anh2":"./accsent/img/bgquan4.webp",
+        "price": 690000
+        
+
+      },
+
+
+
+
+
+      {
+        "id": 1,
+        "name": "MAJOR PIECES JACKET",
+        "categoryId": 4,
+        "color": "black",
+        "size": "S",
+        "anh1":"./accsent/img/jk1.webp",
+        "anh2":"./accsent/img/bgjk1.webp",
+        "price": 760000
+      },
+      {
+        "id": 2,
+        "name": "looming zip JACKET",
+        "categoryId": 4,
+        "color": "black",
+        "size": "S",
+        "anh1":"./accsent/img/jk2.webp",
+        "anh2":"./accsent/img/bgjk2.webp",
+        "price": 760000
+      },
+      {
+        "id": 3,
+        "name": "NEGATIVVITY HIDE CARDIGAN",
+        "categoryId": 4,
+        "color": "black",
+        "size": "S",
+        "anh1":"./accsent/img/jk3.webp",
+        "anh2":"./accsent/img/bgjk3.webp",
+        "price": 650000
+      },
+      {
+        "id": 4,
+        "name": "HEBREW BOXY HOODIE",
+        "categoryId": 4,
+        "color": "black",
+        "size": "S",
+        "anh1":"./accsent/img/jk4.webp",
+        "anh2":"./accsent/img/bgjk4.webp",
+        "price": 720000
+      }
+
+
+
+
+
+
+
+,
+      {
+        "id": 1,
+        "name": "HINT SHUFFLING BAG",
+        "categoryId": 5,
+        "anh1":"./accsent/img/tui1.webp",
+        "anh2":"./accsent/img/bgtui1.webp",
+        "price": 650000
+      }
+      ,
+      {
+        "id": 2,
+        "name": "ZWART WEEKENDER BAG",
+        "categoryId": 5,
+        "anh1":"./accsent/img/tui2.webp",
+        "anh2":"./accsent/img/bgtui2.webp",
+        "price": 690000
+      }
+      ,
+      {
+        "id": 3,
+        "name": "CURVE CROSSBODY QUITED BAG",
+        "categoryId": 5,
+        "anh1":"./accsent/img/tui3.webp",
+        "anh2":"./accsent/img/bgtui3.webp",
+        "price": 380000
+      }
+      ,
+      {
+        "id": 4,
+        "name": "BLACK BLOCK BACKPACK",
+        "categoryId": 5,
+        "anh1":"./accsent/img/tui4.webp",
+        "anh2":"./accsent/img/bgtui4.webp",
+        "price": 670000
+      }
+
+
+
+
+
+      ,
+      {
+        "id": 1,
+        "name": "INTERNATIONAL SOCKS",
+        "categoryId": 6,
+        "color":"black",
+        "anh1":"./accsent/img/tat1.webp",
+        "anh2":"./accsent/img/bgtat1.webp",
+        "price": 90000
+      }
+      ,
+      {
+        "id": 2,
+        "name": "LOGO SOCKS",
+        "categoryId": 6,
+        "color":"black",
+        "anh1":"./accsent/img/tat2.webp",
+        "anh2":"./accsent/img/bgtat2.webp",
+        "price": 90000
+      }
+
+
+
+
+
+      
+    ]
+  }
+  
