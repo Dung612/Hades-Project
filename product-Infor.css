@@ -1,0 +1,107 @@
+*{
+    font-family: Oswald;
+}
+.productContent{
+    margin: 50px 0;
+    
+}
+
+.ContentInfor{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 100%;
+   
+    
+}
+.infors{
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgProduct{
+    width: 33%;
+    height: 80vh;
+    overflow: auto;
+    
+}
+.imgProduct::-webkit-scrollbar {
+    width: 1px; 
+  }
+.imgProduct::-webkit-scrollbar-thumb {
+    background: #000000; /* Màu nền của nút cuộn */
+    border-radius: 6px; /* Bo góc của nút cuộn */
+  }
+  
+.PayProduct{
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.imgProduct img{
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    
+}
+.ContentPay{
+    width: 60%;
+}
+.ContentPay div{
+    margin: 12px 0;
+}
+.PayProduct .btnsize{
+    display: flex;
+}
+.PayProduct .btnsize button{
+    flex: 1;
+    height: 50px;
+    background-color: white;
+    cursor: pointer;
+    border: 1px solid black;
+}
+.infors h3{
+    font-weight: 500;
+    font-size: 16px;
+}
+.infors li{
+    font-weight: 350;
+    font-size: 14px;
+}
+.size h4{
+    font-weight: 300;
+}
+.ContentPay .name {
+    font-size: 14px;
+    font-weight: 500;
+}
+.ContentPay .btnadd , .btnpay{
+    width: 100%;
+    height: 50px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 14px;
+}
+.ContentPay .btnadd{
+    background-color: white;
+    color: black;
+}
+.ContentPay .btnpay{
+    background-color: black;
+    color: white;
+}
+.RelatedProduct h2{
+    margin: 0px 60px;
+    font-weight: 500;
+    font-size: 22px;
+    
+}
