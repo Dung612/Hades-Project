@@ -79,7 +79,7 @@
     background-color: #272727cc;
     width: 50%;
     
-    
+    z-index: 1000;
     padding: 10px;
     text-align: center;
     

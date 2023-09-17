@@ -3,6 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     transition:  0.4s ease;
+    font-family: 'Oswald';
+    
     
 }
 @font-face {
@@ -468,6 +470,52 @@ footer{
     font-family: Oswald;
     font-weight: bold;
     
+}
+.sanphamtimkiem{
+    padding: 12px 44px;
+    overflow: auto;
+    height: 62vh;
+}
+.sanphamtimkiem::-webkit-scrollbar {
+    width: 2px;
+    background-color: #ffffff;
+    
+}
+.sanphamtimkiem::-webkit-scrollbar-thumb {
+    background-color: #000000;
+}
+
+.spsearch{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.203);
+    position: relative;
+    
+}
+.ifspsearch span{
+    text-decoration:underline;
+}
+.spsearch a{
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+    position: absolute;
+}
+
+.imgspsearch {
+    flex: 1;
+   
+}
+.ifspsearch{
+    flex: 1;
+    font-size: 13px;
+}
+.imgspsearch img{
+    width: 36%;
+    float:right;
 }
 .search input{
     width: 100%;

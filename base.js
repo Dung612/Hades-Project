@@ -19,6 +19,10 @@ const categoryIds = urlParams.get('categoryId');
 const productIds = urlParams.get('productId');
 const x = parseInt(categoryIds);
 const y = parseInt(productIds);
+const searchInput = document.getElementById('search-input');
+const searchResults = document.querySelector('.sanphamtimkiem')
+
+
 
 
 let index = 0 
@@ -127,7 +131,7 @@ fetch('http://localhost:3000/products')
                         <img class="anh2" src="${product.anh2}" alt="">
                         <div class="chucnang">
                             <div class="buy"><a href="">MUA NGAY</a></div>
-                            <div class="add"><a href="">THÊM VÀO GIỎ</a></div>
+                            <div class="add" id="addbtn">THÊM VÀO GIỎ</div>
                         </div>
                     </div>
                     <div class="tensanpham"><a href="/Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}">${product.name}</a></div>
@@ -196,7 +200,7 @@ fetch('http://localhost:3000/products')
                              <button>L</button>
                          </div>
                      </div>
-                     <div class=" btnadd">THÊM VÀO GIỎ</div>
+                     <div class=" btnadd" id="addbtn">THÊM VÀO GIỎ</div>
                      <div class=" btnpay">MUA NGAY</div>
                      </div>
                  </div>
@@ -214,4 +218,51 @@ fetch('http://localhost:3000/products')
             });
         })
     }
+
+    function searchProducts(keyword) {
+        
+        searchResults.innerHTML = '';
+    
+        // Lặp qua dữ liệu sản phẩm và tìm kiếm dựa trên từ khóa
+        fetch('http://localhost:3000/products')
+        .then(response => response.json())
+        .then(products => {
+        products.forEach(product => {
+            if (product.name.toLowerCase().includes(keyword.toLowerCase())) {
+                // Tạo phần tử sản phẩm kết quả
+                const productElement = document.createElement('div');
+                productElement.className = 'spsearch';
+                productElement.innerHTML = `
+                    <div class="ifspsearch">
+                        <div class="namespsearch">${product.name}</div>
+                        <div class="pricespsearch">${product.price} <span>đ</span></div>
+                    </div>
+                    <div class="imgspsearch">
+                        <img src="${product.anh1}" alt="${product.name}">
+                    </div>
+                    <a href="/Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}"></a>
+                `;
+    
+                // Thêm sản phẩm vào kết quả tìm kiếm
+                searchResults.appendChild(productElement);
+            }
+        });
+    })
+    searchResults.style.display =' block';
+}
+    searchInput.addEventListener('input', () => {
+        const keyword = searchInput.value.trim();
+        
+        if (keyword === '') {
+            
+            hideAllProducts();
+        } else {
+            searchProducts(keyword);
+        }
+    });
+    
+    function hideAllProducts() {
+       searchResults.style.display =' none';
+    }
+    
    
