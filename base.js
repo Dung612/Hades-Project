@@ -90,6 +90,11 @@ btnclosegiohang.addEventListener('click',()=>{
     body.classList.remove('active2')
     bg.classList.remove('active3')
 })
+bg.addEventListener('click',()=>{
+    timkiem.classList.remove('active')
+    body.classList.remove('active2')
+    bg.classList.remove('active3')
+})
 
 
 
@@ -128,6 +133,7 @@ fetch('http://localhost:3000/products')
                 
                     <div class="anhsanpham">
                         <img src="${product.anh1}" alt="">
+                        <a class="image-link" href="/Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}"></a>
                         <img class="anh2" src="${product.anh2}" alt="">
                         <div class="chucnang">
                             <div class="buy"><a href="">MUA NGAY</a></div>
