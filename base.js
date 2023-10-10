@@ -1,4 +1,4 @@
-const header = document.querySelector('.header');
+ const header = document.querySelector('.header');
 const slideimg = document.querySelectorAll('.slideshow img')
 const slideshow = document.querySelector('.slideshow')
 const imgnumber = slideimg.length
@@ -96,12 +96,21 @@ bg.addEventListener('click',()=>{
     bg.classList.remove('active3')
 })
 
+function fetchProducts() {
+    return fetch('http://localhost:3000/products')
+        .then(response => response.json())
+        .then(products => {
+            return products; // Trả về danh sách sản phẩm
+        })
+        .catch(error => {
+            console.error('Lỗi khi lấy dữ liệu sản phẩm:', error);
+        });
+}
 
 
 
-fetch('http://localhost:3000/products')
-    .then(response => response.json())
-    .then(products => {
+
+    fetchProducts().then(products => {
         const productContainer = document.querySelector('.sanpham');
         products.forEach(product => { 
             
@@ -113,14 +122,14 @@ fetch('http://localhost:3000/products')
                     <div class="anhsanpham">
                     
                         <img src="${product.anh1}" alt=""></a>
-                        <a class="image-link" href="/Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}"></a>
+                        <a class="image-link" href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}"></a>
                         <img class="anh2" src="${product.anh2}" alt=""> 
                         <div class="chucnang">
                             <div class="buy"><a href="">MUA NGAY</a></div>
                             <div class="add"><a href="">THÊM VÀO GIỎ</a></div>
                         </div>
                     </div>
-                    <div class="tensanpham"><a href="/Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}">${product.name}</a></div>
+                    <div class="tensanpham"><a href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}">${product.name}</a></div>
                     <div class="price">${product.price} <span>đ</span></div>
                 
             `;
@@ -133,14 +142,14 @@ fetch('http://localhost:3000/products')
                 
                     <div class="anhsanpham">
                         <img src="${product.anh1}" alt="">
-                        <a class="image-link" href="/Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}"></a>
+                        <a class="image-link" href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}"></a>
                         <img class="anh2" src="${product.anh2}" alt="">
                         <div class="chucnang">
                             <div class="buy"><a href="">MUA NGAY</a></div>
                             <div class="add" id="addbtn">THÊM VÀO GIỎ</div>
                         </div>
                     </div>
-                    <div class="tensanpham"><a href="/Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}">${product.name}</a></div>
+                    <div class="tensanpham"><a href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}">${product.name}</a></div>
                     <div class="price">${product.price} <span>đ</span></div>
                 
             `;
@@ -156,11 +165,10 @@ fetch('http://localhost:3000/products')
     console.log('x:',x);
 
 
-    if(isinfo){
-        fetch('http://localhost:3000/products')
-        .then(response => response.json())
-        .then(products => {
-            const productContainer = document.querySelector('.sanpham');
+    
+        
+        fetchProducts().then(products => {
+            // const productContainer = document.querySelector('.sanpham');
             const productContent = document.querySelector('.productContent');
             
             products.forEach(product => { 
@@ -223,16 +231,15 @@ fetch('http://localhost:3000/products')
                 
             });
         })
-    }
+    
 
     function searchProducts(keyword) {
         
         searchResults.innerHTML = '';
     
         // Lặp qua dữ liệu sản phẩm và tìm kiếm dựa trên từ khóa
-        fetch('http://localhost:3000/products')
-        .then(response => response.json())
-        .then(products => {
+       
+        fetchProducts().then(products => {
         products.forEach(product => {
             if (product.name.toLowerCase().includes(keyword.toLowerCase())) {
                 // Tạo phần tử sản phẩm kết quả
@@ -246,7 +253,7 @@ fetch('http://localhost:3000/products')
                     <div class="imgspsearch">
                         <img src="${product.anh1}" alt="${product.name}">
                     </div>
-                    <a href="/Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}"></a>
+                    <a href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}"></a>
                 `;
     
                 // Thêm sản phẩm vào kết quả tìm kiếm
