@@ -376,20 +376,38 @@ footer{
 .giohang .content{
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap;
+    
     width: 100%;
     padding-bottom: 12px;
     border-bottom: 3px solid black;
+    flex-wrap: wrap-reverse;
+
 }
+
 .spgiohang{
     padding: 30px;
+    overflow: scroll;
+    height: 90%;
+    overflow-x: hidden;
 }
+.spgiohang::-webkit-scrollbar {
+    width: 4px; /* Chiều rộng thanh cuộn */
+  }
+.spgiohang::-webkit-scrollbar-thumb {
+    background: #888; /* Màu nền của thanh cuộn */
+    border-radius: 6px; /* Đường viền cong của thanh cuộn */
+  }
 .spgiohang .contentform{
     
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(195, 195, 195, 0.653);
+}
+.contentform{
+    width: 100%;
+
+   
 }
 .giohang .anh {
     border: 1px solid rgba(195, 195, 195, 0.653);
@@ -617,4 +635,104 @@ footer{
     left: 0;
     z-index: 3;
     
+}
+
+
+
+
+
+
+
+
+#mess{
+    position: fixed;
+    right: 26px;
+    top: 50px;
+    z-index: 100000;
+}
+.mess{
+    
+    display: flex;
+    border-left: 6px  solid rgb(66, 169, 217);
+    height: 96px;
+    width: 340px;
+    border-radius: 12px;
+    padding: 12px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000000b8;
+    /* animation: slide ease .3s , fadeout linear 1s 3s forwards; */
+    
+    
+    
+}
+@keyframes slide{
+    from{
+        transform: translateX(calc(100% + 26px));
+        opacity: 0;
+    }
+    to{
+        transition: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes fadeout{
+    from{
+        opacity: 1;
+
+    }to{
+        opacity: 0;
+
+    }
+}
+.icon i{
+    font-size: 40px;
+}
+.mess .title{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px 0;
+    height: 10px;
+}
+.mess .textmess{
+    color: aliceblue;
+}
+.close{
+    color: aliceblue;
+}
+.close{
+    cursor: pointer;
+    font-size: 20px;
+}
+.success .icon {
+    color: greenyellow;
+
+}
+.content .success{
+    border-color: greenyellow;
+    background-color: rgb(48, 48, 48);
+
+}
+.success .title {
+    color: greenyellow;
+
+}
+
+.warning .icon {
+    color: rgb(244, 55, 55);
+
+}
+.content .warning{
+    border-color: rgb(244, 55, 55);
+    background-color: rgb(48, 48, 48);
+
+}
+.warning .title {
+    color: rgb(244, 55, 55);
+
+}
+#mess .textmess{
+    line-height: 1;
+    font-size: 16px;
+    font-weight: 300;
 }

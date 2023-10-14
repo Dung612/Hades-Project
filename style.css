@@ -72,11 +72,13 @@ select{
 .acc{
     display: flex;
 }
-.slideshow{
-    display: flex;
-}
+/* .slideshow{
+    
+    
+} */
 .slideshow img{
     width: 100%;
+    
     
 }
 .slide{
@@ -89,7 +91,7 @@ select{
     
     z-index: 10;
 }
-.button{
+/* .button{
     display: flex;
     position: absolute;
     bottom: 0;
@@ -97,6 +99,15 @@ select{
     z-index: 1000;
 
 
+} */
+.btnright , .btnleft {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+}
+.btnleft{
+    right: 80px;
 }
 .btn{
     width: 80px;
@@ -112,10 +123,11 @@ select{
 }
 .btnleft::before{
     content: '';
-    height: 40px;
+    height: 42px;
     border: #212b36 1px solid;
     position: absolute;
-    left: 80px;
+    left: 79px;
+    z-index: 1000;
 }
 .btn:hover{
     background-color: #a5a5a5af;

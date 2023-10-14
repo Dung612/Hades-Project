@@ -46,15 +46,19 @@
         </div>
     </div>
     <div class="slide">
-        <div class="slideshow">
+        <div class="slideshow ">
+            <img src="./accsent/img/slideshow_1.webp" alt="">
             <img src="./accsent/img/slideshow_2.webp" alt="">
             <img src="./accsent/img/slideshow_3.webp" alt="">
+            <img src="./accsent/img/slideshow_2.webp" alt="">
+            <img src="./accsent/img/slideshow_1.webp" alt="">
+            
 
         </div>
-        <div class="button">
+        <!-- <div class="button">
             <div class="btn btnleft"><i class="fa-solid fa-chevron-left"></i></div>
             <div class="btn btnright"><i class="fa-solid fa-chevron-right"></i></div>
-        </div>
+        </div> -->
     </div>
     <div class="block-content">
         <div class="content1"><a href="./tops.html?categoryId=1"> <img src="./accsent/img/block_home_category1_new.webp" alt=""></a></div>
@@ -279,5 +283,51 @@
     
 </body>
 <!-- <script src="./scr.js"></script> -->
+<script src="./accsent/New folder/cdnjs.cloudflare.com_ajax_libs_jquery_3.5.0_jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="./base.js"></script>
+<script>
+//     function setSlidePosition() {
+//     slideimg.forEach((image, index) => {
+//         image.style.left = index * 100 + '%';
+
+//     });
+// }
+// function slide(direction) {
+//     if (direction === 'right') {
+//         index = (index + 1) % imgnumber;
+//     } else if (direction === 'left') {
+//         index = (index - 1 + imgnumber) % imgnumber;
+//     }
+//     slideshow.style.left = `-${index * 100}%`;
+// }
+// function slideauto(){
+//     slide('left')
+// }
+
+// btnright.addEventListener('click',() =>{
+//     slide('left')
+// })
+
+// btnleft.addEventListener('click',() =>{
+//     slide('left')
+    
+// })
+
+
+// setSlidePosition();
+// setInterval(slideauto,15000)
+
+
+$('.slideshow').slick({
+    autoplay: true,
+    speed: 500,
+    prevArrow: '<div class="btn btnleft"><i class="fa-solid fa-chevron-left"></i></div>',
+    nextArrow: '<div class="btn btnright"><i class="fa-solid fa-chevron-right"></i></div>',
+    infinite: true, 
+    slidesToShow: 1, 
+    slidesToScroll: 1, 
+});
+
+</script>
 </html>
