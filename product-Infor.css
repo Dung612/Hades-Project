@@ -58,12 +58,13 @@
 .PayProduct .btnsize{
     display: flex;
 }
-.PayProduct .btnsize button{
+.PayProduct .btnsize .btnsizes{
     flex: 1;
     height: 50px;
     background-color: white;
     cursor: pointer;
     border: 1px solid black;
+
 }
 .infors h3{
     font-weight: 500;
@@ -104,4 +105,11 @@
     font-weight: 500;
     font-size: 22px;
     
+}
+ .selected{
+    border: 2px solid rgb(0, 255, 242) !important ;
+    background-color: #0000001c !important;
+    font-weight: bold !important;
+    border-radius: 3px !important;
+
 }

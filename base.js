@@ -14,6 +14,8 @@ const  btngiohang = document.querySelector('.btngiohang')
 const giohang = document.querySelector('.giohang')
 const isIndexPage = window.location.pathname === '/Hades-Project/index.html';
 const isinfo = window.location.pathname === '/Hades-Project/product-Infor.html'
+const isshopall = window.location.pathname === '/hades%20project/Hades-Project/shop.html';
+
 const urlParams = new URLSearchParams(window.location.search);
 const categoryIds = urlParams.get('categoryId');
 const productIds = urlParams.get('productId');
@@ -21,82 +23,94 @@ const x = parseInt(categoryIds);
 const y = parseInt(productIds);
 const searchInput = document.getElementById('search-input');
 const searchResults = document.querySelector('.sanphamtimkiem')
-const Listgiohang = [];
+
+const titleElement = document.querySelector('title');
+
 
 
 
 
 let index = 0 
 
-window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
-
-    if (scrollTop > 50) {
-        header.style.backgroundColor = 'rgb(255, 255, 255)'; 
-        header.style.transition = 'background-color 0.3s ease'; 
-    } else {
-        header.style.backgroundColor = 'rgba(0, 0, 0, 0)';
-    }
-});
-// if (isIndexPage) {
-// function setSlidePosition() {
-//     slideimg.forEach((image, index) => {
-//         image.style.left = index * 100 + '%';
-
-//     });
-// }
-// function slide(direction) {
-//     if (direction === 'right') {
-//         index = (index + 1) % imgnumber;
-//     } else if (direction === 'left') {
-//         index = (index - 1 + imgnumber) % imgnumber;
-//     }
-//     slideshow.style.left = `-${index * 100}%`;
-// }
-// function slideauto(){
-//     slide('left')
-// }
-
-// btnright.addEventListener('click',() =>{
-//     slide('left')
-// })
-
-// btnleft.addEventListener('click',() =>{
-//     slide('left')
+try {
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
     
-// })
+        if (scrollTop > 50) {
+            header.style.backgroundColor = 'rgb(255, 255, 255)'; 
+            header.style.transition = 'background-color 0.3s ease'; 
+        } else {
+            header.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+        }
+    });
+    // if (isIndexPage) {
+    // function setSlidePosition() {
+    //     slideimg.forEach((image, index) => {
+    //         image.style.left = index * 100 + '%';
+    
+    //     });
+    // }
+    // function slide(direction) {
+    //     if (direction === 'right') {
+    //         index = (index + 1) % imgnumber;
+    //     } else if (direction === 'left') {
+    //         index = (index - 1 + imgnumber) % imgnumber;
+    //     }
+    //     slideshow.style.left = `-${index * 100}%`;
+    // }
+    // function slideauto(){
+    //     slide('left')
+    // }
+    
+    // btnright.addEventListener('click',() =>{
+    //     slide('left')
+    // })
+    
+    // btnleft.addEventListener('click',() =>{
+    //     slide('left')
+        
+    // })
+    
+    
+    // setSlidePosition();
+    // setInterval(slideauto,15000)
+    // }
+    
+    btntimkiem.addEventListener('click',()=>{
+        timkiem.classList.add('active')
+        body.classList.add('active2')
+        bg.classList.add('active3')
+    })
+    btnclose.addEventListener('click',()=>{
+        timkiem.classList.remove('active')
+        body.classList.remove('active2')
+        bg.classList.remove('active3')
+    })
+    function showCart() {
+        giohang.classList.add('active');
+        body.classList.add('active2');
+        bg.classList.add('active3');
+    }
+    btngiohang.addEventListener('click', showCart);
+    
+    btnclosegiohang.addEventListener('click',()=>{
+        giohang.classList.remove('active')
+        body.classList.remove('active2')
+        bg.classList.remove('active3')
+    })
+    bg.addEventListener('click',()=>{
+        giohang.classList.remove('active')
+        timkiem.classList.remove('active')
+        body.classList.remove('active2')
+        bg.classList.remove('active3')
+    })
+  
+} catch (error) {
+  // Xử lý lỗi ở đây
+  console.error('Đã xảy ra lỗi:108', error.message);
+}
 
 
-// setSlidePosition();
-// setInterval(slideauto,15000)
-// }
-
-btntimkiem.addEventListener('click',()=>{
-    timkiem.classList.add('active')
-    body.classList.add('active2')
-    bg.classList.add('active3')
-})
-btnclose.addEventListener('click',()=>{
-    timkiem.classList.remove('active')
-    body.classList.remove('active2')
-    bg.classList.remove('active3')
-})
-btngiohang.addEventListener('click',()=>{
-    giohang.classList.add('active')
-    body.classList.add('active2')
-    bg.classList.add('active3')
-})
-btnclosegiohang.addEventListener('click',()=>{
-    giohang.classList.remove('active')
-    body.classList.remove('active2')
-    bg.classList.remove('active3')
-})
-bg.addEventListener('click',()=>{
-    giohang.classList.remove('active')
-    timkiem.classList.remove('active')
-    body.classList.remove('active2')
-    bg.classList.remove('active3')
-})
 
 function fetchProducts() {
     return fetch('http://localhost:3000/products')
@@ -110,16 +124,18 @@ function fetchProducts() {
 }
 
 
-
-
+try {
     fetchProducts().then(products => {
         const productContainer = document.querySelector('.sanpham');
-        let foundProduct = false; // Biến cờ để kiểm tra xem đã tìm thấy sản phẩm phù hợp chưa
+        let foundProduct = false;
+         // Biến để kiểm tra xem đã tìm thấy sản phẩm phù hợp chưa
+         products.sort((a, b) => a.price - b.price);
         products.forEach(product => { 
             
             if( product.categoryId === x){
                 const productElement = document.createElement('div');
             productElement.className = 'sanpham1 col4s fontbasic';
+            const formattedPrice = product.price.toLocaleString('vi-VN');
             productElement.innerHTML = `
                     
             <div class="anhsanpham">
@@ -127,16 +143,15 @@ function fetchProducts() {
             <a class="image-link" href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}"></a>
             <img class="anh2" src="${product.anh2}" alt="">
             <div class="chucnang">
-                <div class="buy"><a href="">MUA NGAY</a></div>
-                <div class="add" onclick="showmessCart()" >THÊM VÀO GIỎ</div>
+                <div class="buy" onclick="redirectToThanhToan()"><a href="./thanhtoan.html">MUA NGAY</a></div>
+                <div class="add" onclick="showCart()" >THÊM VÀO GIỎ</div>
             </div>
             </div>
             <div class="tensanpham"><a href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}">${product.name}</a></div>
-            <div class="price">${product.price} <span>đ</span></div>
+            <div class="price">${formattedPrice} <span>đ</span></div>
                 
             `;
             productContainer.appendChild(productElement);
-
             const btnAddSpElements = productElement.querySelectorAll('.add');
 
             // Xử lý các phần tử có class "add" trong sản phẩm hiện tại
@@ -147,9 +162,10 @@ function fetchProducts() {
                     console.log('Đã thêm sản phẩm vào giỏ hàng');
                     Listgiohang.forEach(item => {
                         console.log(item);
-                        
+                     
                         renderCartProducts(Listgiohang, contentElement);
                         updateTotalPrice(Listgiohang);
+                        
                         
                     });
                     
@@ -171,6 +187,7 @@ function fetchProducts() {
             if(isNaN(x)){
                 const productElement = document.createElement('div');
             productElement.className = 'sanpham1 col4s fontbasic';
+            const formattedPrice = product.price.toLocaleString('vi-VN');
             productElement.innerHTML = `
                 
                     <div class="anhsanpham">
@@ -178,12 +195,12 @@ function fetchProducts() {
                         <a class="image-link" href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}"></a>
                         <img class="anh2" src="${product.anh2}" alt="">
                         <div class="chucnang">
-                            <div class="buy"><a href="">MUA NGAY</a></div>
-                            <div class="add" onclick="showmessCart()" >THÊM VÀO GIỎ</div>
+                            <div class="buy" onclick="redirectToThanhToan()"><a href="./thanhtoan.html">MUA NGAY</a></div>
+                            <div class="add" onclick="showCart()" >THÊM VÀO GIỎ</div>
                         </div>
                     </div>
                     <div class="tensanpham"><a href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}">${product.name}</a></div>
-                    <div class="price">${product.price} <span>đ</span></div>
+                    <div class="price">${formattedPrice} <span>đ</span></div>
                 
             `;
             productContainer.appendChild(productElement);
@@ -201,12 +218,14 @@ function fetchProducts() {
                     
                     Listgiohang.forEach(item => {
                         console.log(item);
+                        
                         renderCartProducts(Listgiohang, contentElement);
                         updateTotalPrice(Listgiohang);
                         
+                        
                     });
                     
-                });
+                }); foundProduct = true; // Đánh dấu đã tìm thấy sản phẩm
             });
 
             btnAddSpElements.forEach(addElement => {
@@ -222,7 +241,7 @@ function fetchProducts() {
             }
             
         });
-        if (!foundProduct) {
+        if (!foundProduct ) {
             const emptyCategoryElement = document.createElement('div');
             emptyCategoryElement.className = 'empty-category';
             emptyCategoryElement.textContent = 'Chưa có sản phẩm nào trong danh mục này';
@@ -234,10 +253,18 @@ function fetchProducts() {
     console.log('categoryId:', categoryIds);
     console.log('y:',y);
     console.log('x:',x);
+  
+} catch (error) {
+    
+  // Xử lý lỗi ở đây
+  console.error('Đã xảy ra lỗi:253', error.message);
+}
+
+
 
 
     
-        
+        let selectedSizeButton;
         fetchProducts().then(products => {
             
             const productContent = document.querySelector('.productContent');
@@ -245,8 +272,10 @@ function fetchProducts() {
             products.forEach(product => { 
                 
                 if(product.categoryId === x && product.id === y){
+                    titleElement.textContent = `${product.name} - HADES STUDIO`;
                     const productElement = document.createElement('div');
                     productElement.className = 'ContentInfor';
+                    const formattedPrice = product.price.toLocaleString('vi-VN');
                     productElement.innerHTML = `
                         
                     <div class="infors">
@@ -275,18 +304,18 @@ function fetchProducts() {
                      <div class="ContentPay">
                          <div class="name"><h2>${product.name}</h2></div>
                          <div class="price">
-                         ${product.price} đ
+                         ${formattedPrice} đ
                          </div>
                          <div class="size">
                          <h4>kích thước</h4>
                          <div class="btnsize">
-                             <button>S</button>
-                             <button>M</button>
-                             <button>L</button>
+                             <button class="btnsizes " data-size="S">S</button>
+                             <button class="btnsizes selected" data-size="M">M</button>
+                             <button class="btnsizes" data-size="L">L</button>
                          </div>
                      </div>
-                     <div class=" btnadd" onclick="showmessCart()" >THÊM VÀO GIỎ</div>
-                     <div class=" btnpay">MUA NGAY</div>
+                     <div class=" btnadd" onclick="showCart()" >THÊM VÀO GIỎ</div>
+                     <div class=" btnpay" onclick="redirectToThanhToan()">MUA NGAY</div>
                      </div>
                  </div>
                         
@@ -294,6 +323,27 @@ function fetchProducts() {
                     productContent.appendChild(productElement);
 
                     const btnAddSpElements = productElement.querySelectorAll('.btnadd');
+
+                    const buttonsize = productElement.querySelectorAll('.btnsizes');
+                    const buttonsizearray = Array.from(buttonsize);
+                    buttonsizearray.forEach(button => {
+                        button.addEventListener('click', () => {
+                            // Xóa lớp "selected" khỏi tất cả các nút
+                            buttonsizearray.forEach(btn => {
+                                btn.classList.remove('selected');
+                            });
+                            
+                            // Thêm lớp "selected" cho nút được click
+                            button.classList.add('selected');
+
+                            selectedSizeButton = button;
+
+                          
+                            
+                            
+                        });
+                    });
+                    console.log("jadjakdja")
 
             // Xử lý các phần tử có class "add" trong sản phẩm hiện tại
             btnAddSpElements.forEach(btn => {
@@ -304,6 +354,8 @@ function fetchProducts() {
                     Listgiohang.forEach(item => {
                         console.log(item);
                         renderCartProducts(Listgiohang, contentElement);
+                        updateTotalPrice(Listgiohang);
+                        
                         
                     });
                     
@@ -348,7 +400,8 @@ function fetchProducts() {
                     </div>
                     <div class="imgspsearch">
                         <img src="${product.anh1}" alt="${product.name}">
-                    </div>
+                    </div> 
+
                     <a href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}"></a>
                 `;
     
@@ -359,6 +412,7 @@ function fetchProducts() {
     })
     searchResults.style.display =' block';
 }
+    try {
     searchInput.addEventListener('input', () => {
         const keyword = searchInput.value.trim();
         
@@ -369,24 +423,41 @@ function fetchProducts() {
             searchProducts(keyword);
         }
     });
+  
+} catch (error) {
+  // Xử lý lỗi ở đây
+  console.error('Đã xảy ra lỗi:421', error.message);
+}
+
     
     function hideAllProducts() {
        searchResults.style.display =' none';
     }
+
+
+
     let productIndex = 0;
+    const contentElement = document.querySelector('.content');
+
+    // const size = getSizeFromSelectedButton();
+    const Listgiohang = [];
     function renderCartProducts(Listgiohang, contentElement) {
+        
+        // fixxxxxxxxxxxxxxxxxxxxxxxxxxx
         let indexspcart = 0
         if (Listgiohang.length === 0) {
             contentElement.innerHTML = 'Không có gì trong giỏ hàng';
         } else {
+            
             contentElement.innerHTML = '';
-    
+            // const buttonText = selectedSizeButton.textContent;
             Listgiohang.forEach(product => {
                 
                 // Tạo và hiển thị sản phẩm trong giỏ hàng
                 const productElement = document.createElement('div');
                 productElement.className = 'contentform';
-    
+                const formattedPrice = product.price.toLocaleString('vi-VN');
+                
                 productElement.innerHTML = `
                     <div class="leftsp">
                         <div class="anh">
@@ -394,10 +465,10 @@ function fetchProducts() {
                         </div>
                         <div class="thongtin">
                             <div class="name">${product.name}</div>
-                            <div class="size">ĐEN / <span>L</span></div>
+                            <div class="size">ĐEN / <span>${product.size}</span></div>
                             <div class="price">
                                 <div class="soluong">1</div>
-                                <div class="gia">${product.price}đ</div>
+                                <div class="gia">${formattedPrice}đ</div>
                             </div>
                         </div>
                     </div>
@@ -405,8 +476,8 @@ function fetchProducts() {
                 `;
     
                 contentElement.appendChild(productElement);
-                indexspcart++
-
+                indexspcart++;
+                
                 // Lấy danh sách tất cả các nút xóa
 
             });
@@ -430,6 +501,75 @@ function fetchProducts() {
                         // Cập nhật giao diện sau khi xóa sản phẩm
                         renderCartProducts(Listgiohang, contentElement);
                         updateTotalPrice(Listgiohang);
+
+                    }
+                });
+            });
+            
+        }
+    }
+    function renderCartthanhtoan(Listgiohang, contentElement) {
+        
+        // fixxxxxxxxxxxxxxxxxxxxxxxxxxx
+        let indexspcart = 0
+        if (Listgiohang.length === 0) {
+            contentElement.innerHTML = 'Không có gì trong giỏ hàng';
+        } else {
+            
+            contentElement.innerHTML = '';
+            // const buttonText = selectedSizeButton.textContent;
+            Listgiohang.forEach(product => {
+                
+                // Tạo và hiển thị sản phẩm trong giỏ hàng
+                const productElement = document.createElement('div');
+                productElement.className = 'contentform';
+                const formattedPrice = product.price.toLocaleString('vi-VN');
+                
+                productElement.innerHTML = `
+                    <div class="leftsp">
+                        <div class="anh">
+                            <img src="${product.anh1}" alt="">
+                        </div>
+                        <div class="thongtin">
+                            <div class="name">${product.name}</div>
+                            <div class="size">ĐEN / <span>${product.size}</span></div>
+                            <div class="price">
+                                <div class="soluong">1</div>
+                                <div class="gia">${formattedPrice}đ</div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                `;
+    
+                contentElement.appendChild(productElement);
+                indexspcart++;
+
+                // Lấy danh sách tất cả các nút xóa
+                saveCartToLocalStorage(Listgiohang);
+            });
+
+            const btnremovesp = document.querySelectorAll('.closesmall');
+            // Chuyển NodeList thành mảng
+            const btnremovespArray = Array.from(btnremovesp);
+
+            btnremovespArray.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Lấy vị trí (index) của nút xóa trong danh sách nút
+                    const index = parseInt(this.getAttribute('data-index'));
+            
+                    if (index !== -1) {
+                        // Sử dụng hàm splice để xóa sản phẩm tại vị trí index khỏi danh sách
+                        Listgiohang.splice(index, 1);
+                        
+                        console.log('Đã xóa');
+                        console.log(index);
+            
+                        // Cập nhật giao diện sau khi xóa sản phẩm
+                        renderCartProducts(Listgiohang, contentElement);
+
+                        
+
                     }
                 });
             });
@@ -452,9 +592,10 @@ function fetchProducts() {
         // Tạo phần tử mới để hiển thị tổng tiền
         const totalpriceElement = document.createElement('div');
         totalpriceElement.className = 'pricetotal';
+        const formattedPrice = total.toLocaleString('vi-VN');
         totalpriceElement.innerHTML = `
             <div class="titlepricetotal">TOTAL</div>
-            <div class="totalprice">${total}đ</div>
+            <div class="totalprice">${formattedPrice}đ</div>
         `;
         
         // Xóa phần tử "totalprice" cũ nếu nó tồn tại
@@ -471,11 +612,29 @@ function fetchProducts() {
     
 
 
-    const contentElement = document.querySelector('.content');
+
     renderCartProducts(Listgiohang, contentElement);
     
+
     
-    
+
+    // function saveCartToLocalStorage() {
+    //     localStorage.setItem('cart', JSON.stringify(Listgiohang));
+    //   }
+      
+    //   // Hàm để lấy trạng thái giỏ hàng từ localStorage (nếu có)
+    //   function getCartFromLocalStorage() {
+    //     const cartData = localStorage.getItem('cart');
+    //     return cartData ? JSON.parse(cartData) : [];
+    //   }
+    //   function getCartProducts() {
+    //     return Listgiohang;
+    //   }
+    //   window.addEventListener('load', function () {
+    //     Listgiohang = getCartFromLocalStorage();
+    //     // Sau khi cập nhật biến Listgiohang, bạn có thể cập nhật giao diện theo nó
+    //     // Ví dụ: renderCartProducts(Listgiohang, contentElement);
+    //   });      
 
     function mess({title = '',textmess = '',type='info',duration=3000}){
         const main = document.getElementById('mess')
@@ -520,6 +679,9 @@ function fetchProducts() {
 
     }
 
+
+
+
   
     function  showmessSuccess(){
         mess({
@@ -528,6 +690,18 @@ function fetchProducts() {
         type:'success',
         duration:1000,
     })
+    
+
+    }
+
+    function  successCart(){
+        mess({
+        title:'success',
+        textmess:'Bạn đã đặt hàng thành công',
+        type:'success',
+        duration:1000,
+    })
+    
 
     }
     function showmessWarning(){
@@ -537,6 +711,17 @@ function fetchProducts() {
         type:'warning',
         duration:3000,
     })
+    
+
+    }
+    function warning(){
+        mess({
+        title:'Warning',
+        textmess:'Vui Lòng điền đủ thông tin',
+        type:'warning',
+        duration:3000,
+    })
+    
 
     }
     function  showmessCart(){
@@ -548,3 +733,13 @@ function fetchProducts() {
     })
 
     }
+    function redirectToThanhToan() {
+        window.location.href = './thanhtoan.html';
+      }
+      function redirectToindex() {
+        window.location.href = './index.html';
+      }
+      function redirectTologin() {
+        window.location.href = './login.html';
+      }
+
