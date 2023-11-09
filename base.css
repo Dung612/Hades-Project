@@ -7,6 +7,9 @@
     
     
 }
+body{
+    overflow-x: hidden;
+}
 @font-face {
     font-family:Oswald ;
     src: url(./accsent/font/Oswald-VariableFont_wght.ttf);
@@ -546,17 +549,17 @@ footer{
     background-color: #f1f1f1;
 }
 .backgroundmo{
-    width: 68%;
+    width: 80%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.577);
     position: fixed;
     top: 0;
-    z-index: 100000;
+    z-index: 100;
     transition: 0.4s linear;
-    left: -68%;
+    left: -80%;
 }
 .active{
-    right:0 ;
+    right:0 !important;
 }
 
 .active2{
@@ -737,4 +740,13 @@ i{
     line-height: 1;
     font-size: 16px;
     font-weight: 300;
+}
+.acc{
+    align-items: center;
+}
+
+.footerres{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
 }

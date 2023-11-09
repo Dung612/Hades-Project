@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald';
+    }
+    @font-face {
+        font-family:Oswald ;
+        src: url(./accsent/font/Oswald-VariableFont_wght.ttf);
+    }
+    header{
+        font-size: 12px;
+        align-items: center;
+        
+        
+        display: flex;
+        justify-content: space-between;
+        padding: 22px;
+        background-color: rgba(0, 0, 0, 0.353);
+    }
+    header h1{
+        font-weight: 500;
+        line-height: 1;
+    }
+    header img{
+        height: 12px;
+        width: auto;
+    }
+    body{
+        overflow: hidden;
+    }
+    .contentl{
+        width: 16%;
+        height: 100vh;
+        background-color:  rgba(0, 0, 0, 0.353);
+    }
+    .contentr{
+        width: 84%;
+        height: 100vh;
+    }
+    .menuadmin{
+        width: 100%;
+        padding: 18px ;
+        background-color: rgba(0, 0, 0, 0.716);
+        text-align: center;
+        margin-bottom: 12px;
+        color: rgba(255, 255, 255, 0.755);
+        
+        border: 1px solid white;
+        cursor: pointer;
+        font-size: 16px;
+        border-right: unset;
+    }
+    .active{
+        color:black ;
+        background: white;
+    }
+    .admin{
+        display: flex;
+    }
+    .btnaddproduct button{
+        width: 100px;
+        height: 40px;
+        cursor: pointer;
+        position: absolute;
+        right: 40px;
+        top: 100px;
+        border-radius:6px ;
+
+    }
+
+    .hienthisanpham{
+        width: 100%;
+        height: 100vh;
+        overflow: scroll;
+        
+    }
+
+
+</style>
+<body>
+    <header>
+        <h1>HADES STUDIO-administrators</h1>
+        <img src="./accsent/img/logotitle.svg" alt="">
+    </header>
+    <div class="admin">
+        <div class="contentl ">
+            <div class="adminacc menuadmin">
+                <div class="title">Quản Trị Tài Khoản</div>
+            </div>
+            <div class="adminproduct menuadmin active">
+                <div class="title">Quản Trị Sản Phẩm</div>
+            </div>
+            <div class="admincart menuadmin ">
+                <div class="title" > Quản Trị Đơn Hàng</div>
+            </div>
+            <div class="adminweb menuadmin">
+                <div class="title"> Quản Trị Web</div>
+            </div>
+
+        </div>
+        <div class="contentr">
+            <div class="btnaddproduct">
+                <button>+ Thêm sản phẩm</button>
+            </div>
+            <div class="hienthisanpham">
+                <div class="phanloai">
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

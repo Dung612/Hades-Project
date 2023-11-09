@@ -71,6 +71,7 @@ select{
 }
 .acc{
     display: flex;
+    
 }
 /* .slideshow{
     
@@ -138,6 +139,7 @@ select{
 .nav a:hover {
     color: black;
 }
+
 
 
 .menu li:hover {

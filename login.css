@@ -51,11 +51,13 @@
     overflow: hidden;
     transition-duration: .3s;
     margin: 14px 0;
+    margin: 18px 0;
   }
   #btnlogin{
     background-color:rgb(15, 15, 15); 
     border: none;
   }
+
   .login h2{
     margin-bottom:12px ;
     font-size: 18px;
@@ -95,6 +97,13 @@
 .login a{
     text-decoration: none;
     color: black;
+}
+#password{
+  margin-bottom: unset;
+}
+.error{
+  color: red;
+  font-size: 12px;
 }
 .gioitinh{
     /* display: inline-flex;

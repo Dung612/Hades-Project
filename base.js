@@ -12,6 +12,8 @@ const btnclosegiohang = document.querySelector('.closegiohang')
 const bg = document.querySelector('.backgroundmo')
 const  btngiohang = document.querySelector('.btngiohang')
 const giohang = document.querySelector('.giohang')
+const btnmenuses = document.querySelector('.btnmenures')
+const menuses = document.querySelector('.menures')
 const isIndexPage = window.location.pathname === '/Hades-Project/index.html';
 const isinfo = window.location.pathname === '/Hades-Project/product-Infor.html'
 const isshopall = window.location.pathname === '/hades%20project/Hades-Project/shop.html';
@@ -23,8 +25,10 @@ const x = parseInt(categoryIds);
 const y = parseInt(productIds);
 const searchInput = document.getElementById('search-input');
 const searchResults = document.querySelector('.sanphamtimkiem')
-
+const titlefooter = document.querySelector('.titlefooter')
+const content1footer = document.querySelector('footer .content1')
 const titleElement = document.querySelector('title');
+
 
 
 
@@ -76,33 +80,46 @@ try {
     // setInterval(slideauto,15000)
     // }
     
-    btntimkiem.addEventListener('click',()=>{
-        timkiem.classList.add('active')
-        body.classList.add('active2')
-        bg.classList.add('active3')
-    })
+    btntimkiem.addEventListener('click',showSearch)
     btnclose.addEventListener('click',()=>{
         timkiem.classList.remove('active')
         body.classList.remove('active2')
         bg.classList.remove('active3')
+        menuses.classList.remove('active')
     })
     function showCart() {
         giohang.classList.add('active');
         body.classList.add('active2');
         bg.classList.add('active3');
     }
+    function showSearch() {
+        timkiem.classList.add('active')
+        body.classList.add('active2')
+        bg.classList.add('active3')
+    }
+    
+
     btngiohang.addEventListener('click', showCart);
     
     btnclosegiohang.addEventListener('click',()=>{
         giohang.classList.remove('active')
         body.classList.remove('active2')
         bg.classList.remove('active3')
+        menuses.classList.remove('active')
+    })
+    titlefooter.addEventListener('click',()=>{
+        content1footer.classList.toggle('open')
     })
     bg.addEventListener('click',()=>{
         giohang.classList.remove('active')
         timkiem.classList.remove('active')
         body.classList.remove('active2')
         bg.classList.remove('active3')
+        menuses.classList.remove('active')
+    })
+    btnmenuses.addEventListener('click',()=>{
+        menuses.classList.toggle('active')
+        bg.classList.toggle('active3')
     })
   
 } catch (error) {
@@ -143,7 +160,7 @@ try {
             <a class="image-link" href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}"></a>
             <img class="anh2" src="${product.anh2}" alt="">
             <div class="chucnang">
-                <div class="buy" onclick="redirectToThanhToan()"><a href="./thanhtoan.html">MUA NGAY</a></div>
+                <div class="buy" onclick="redirectToThanhToan()">MUA NGAY</div>
                 <div class="add" onclick="showCart()" >THÊM VÀO GIỎ</div>
             </div>
             </div>
@@ -195,7 +212,7 @@ try {
                         <a class="image-link" href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}"></a>
                         <img class="anh2" src="${product.anh2}" alt="">
                         <div class="chucnang">
-                            <div class="buy" onclick="redirectToThanhToan()"><a href="./thanhtoan.html">MUA NGAY</a></div>
+                            <div class="buy" onclick="redirectToThanhToan()">MUA NGAY</div>
                             <div class="add" onclick="showCart()" >THÊM VÀO GIỎ</div>
                         </div>
                     </div>
@@ -721,6 +738,18 @@ try {
         type:'warning',
         duration:3000,
     })
+    
+    
+
+    }
+    function warninglogin(){
+        mess({
+        title:'Error',
+        textmess:'Sai tên đăng nhập hoặc mật khẩu',
+        type:'warning',
+        duration:3000,
+    })
+    
     
 
     }

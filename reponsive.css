@@ -1,0 +1,286 @@
+.btnresponsive{
+    display: none;
+    font-size: 24px;
+    
+   
+}
+.menures{
+    position: fixed;
+    top: 75px;
+    right: -350px;
+    width: 300px;
+    text-align: center;
+    background-color: white;
+    height: 100vh;
+    padding: 16px;
+    font-size: 22px;
+    
+    
+}
+.reccuitment{
+    flex-wrap: wrap;
+}
+.menures li{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 8px;
+    
+}
+.titlelogo{
+    line-height: 0;
+    margin-left: 16px;
+    display: none;
+    margin-right: 6px;
+    
+}
+.accres{
+    display: flex;
+}
+.footerres{
+    display: flex;
+}
+
+@media only screen  and (max-width: 1200px) {
+    .menu{
+        display: none;
+    }
+   
+    .btnresponsive{
+        display: block  ;
+    }
+    .header{
+        background-color: white !important;
+        
+    }
+
+    .titlelogo{
+        display: block;
+    }
+    .textslide span p{
+        font-size: 50px;
+    }
+    .textslideshow{
+        margin: 0 0;
+    }
+    .timkiem{
+        width: 50%;
+        right: -50%;
+    }
+    .giohang{
+        width: 50%;
+        right: -50%;
+    }
+    .btnresponsive{
+        display: flex;
+        align-items: center;
+    }
+    .btnresponsive i{
+        margin: 0 12px;
+    }
+    .btnres{
+
+        display: none;
+    }
+    .slide{
+        margin-top: 76px;
+    }
+    .ContentInfor{
+        padding: 20px;
+        
+    }
+
+
+
+    }
+
+    @media only screen  and (max-width: 980px) {
+
+        .accres{
+            display: none;
+        }
+        .btnres{
+            display: block;
+        }
+        .nav{
+            margin: 10px 0;
+        }
+        .col4s{
+            width: 40%;
+        }
+        footer{
+            display: block;
+        }
+        .col4{
+            width: 30%;
+
+        }
+        .content1 .titlefooter{
+            text-align: center;
+        }
+        .content1{
+            width: 100%;
+            margin-bottom: 24px;
+            
+
+        }
+        .content1 ul{
+            text-align: center;
+            
+        }
+        .footerres{
+            justify-content: space-between;
+        }
+        .slide .btn{
+            width: 60px;
+            height: 60px;
+        }
+        .btnleft{
+            right: 60px;
+        }
+        .btnleft::before{
+            left: 59px;
+        }
+        .infors{
+            display: none;
+        }
+        .ContentInfor{
+            justify-content: space-evenly;
+        }
+        .imgProduct{
+            width: 50%;
+        }
+        .PayProduct{
+            width: 50%; 
+        }
+        .login{
+            width: 50% !important;
+        }
+        
+
+    }
+
+    @media only screen  and (max-width: 660px) {
+
+        .thanhtoan{
+            display: block !important;
+        }
+        .thanhtoanr{
+            width: 100%;
+            padding-top: unset;
+            height: 50vh;
+            background-color: white;
+
+        }
+        .thanhtoanl{
+            width: 100%; 
+            padding-left: 40px;
+            padding-bottom: unset;
+            height: 66vh;
+            
+            
+        }
+        .btnsucces{
+            position: absolute;
+            bottom: -77px;
+            right: 30px;
+        }
+        .nav{
+            display: block;
+        }
+        .sanpham{
+            padding: unset;
+        }
+        .giohang{
+            width: 100%;
+            right: -100%;
+        }
+        .timkiem{
+            width: 100%;
+            right:  -100%;
+        }
+        .btnresponsive{
+            width: 100%;
+            justify-content: space-between;
+        }
+        .login{
+            width: 60% !important;
+        }
+        .contentrec{
+            width: 50%;
+            padding: 6px;
+        }
+
+    }
+    @media only screen  and (max-width: 480px) {
+        .login{
+            width: 80% !important;
+        }
+        .left{
+            flex-wrap: wrap;
+        }
+        .titlelogo{
+            width: 100%;
+            text-align: center;
+        }
+        .logo{
+            width: 100%;
+            text-align: center;
+        }
+        .block-content{
+            display: block;
+            overflow: hidden;
+        }
+        .block-content img{
+            width: 100vw;
+        }
+        .content2{
+            margin: unset !important;
+        }
+        .content1 ,.content2,.content3{
+            overflow: hidden;
+        }
+        .slick-slide{
+            object-fit: cover;
+            object-position:center ;
+            height: 80vh !important;
+            width: 100vw !important;
+        }
+      
+        .ContentInfor{
+            display: block;
+        }
+        .imgProduct{
+            width: 100%;
+            height: 60vh;
+        }
+        .PayProduct{
+            width: 100%;
+            text-align: center;
+        }
+        .col4 ul{
+            display: none;
+        }
+        .col4 a{
+            display: none;
+        }
+        .footerres{
+            display: block;
+        }
+        .col4{
+            text-align: center;
+            width: 100%;
+            margin: unset !important;
+            border-top: 1px solid rgba(0, 0, 0, 0.249);
+        }
+        .buy , .add{
+            padding: 8px 12px;
+            font-size: 8px;
+            font-weight: 300;
+        }
+        .open ul{
+            display: block;
+        }
+        .heart{
+            display: none;
+        }
+    }
+

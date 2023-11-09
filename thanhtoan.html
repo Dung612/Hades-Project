@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./fontawesome-free-6.4.0-web/css/all.min.css">
+    
     <title>Thanh Toán - HADES STUDIO</title>
 </head>
 <style>
@@ -32,10 +33,10 @@
 
 }
 .thanhtoanr{
-    padding: 56px 40px;
+    padding: 56px 0;
     background-color: rgb(232, 232, 232);
     width: 40%;
-    padding-right: 12%;
+    
     height: 100vh;
 }
 .thanhtoanl{
@@ -358,6 +359,7 @@ h4{
 }
 
 </style>
+<link rel="stylesheet" href="./reponsive.css">
 <body>
 <div class="thanhtoan">
     <div class="thanhtoanl">
@@ -562,7 +564,32 @@ h4{
     if (!fullName || !email || !phone || !address || !paymentMethod  || !selectedProvince || !selectedDistrict || !selectedWard) {
         warning() 
     } else {
+       
+        var check = /^0\d{9}$/; //bat dau bang so 0 va cos tong 10 chu so
+
+        if (check.test(phone)) {
+            kiemtra()
+        } else {
+        alert("Số điện thoại không hợp lệ");
+        }
+    }
+    function kiemtra() {
+      
+      var emailkt = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      // ^ khẳng định vị trí bắt đầu của chuỗi.
+      // [^\s@]+ khớp với một hoặc nhiều ký tự không phải khoảng trắng hoặc '@'.
+      // @ khớp với ký tự '@'.
+      // [^\s@]+ khớp với một hoặc nhiều ký tự không phải khoảng trắng hoặc '@'.
+      // \. khớp với ký tự '.'.
+      // [^\s@]+ khớp với một hoặc nhiều ký tự không phải khoảng trắng hoặc '@'.
+      // $ khẳng định vị trí kết thúc của chuỗi.
+
+      if (!emailkt.test(email)) {
+        alert("Định dạng email không đúng");
+      } 
+      else{
         successCart()
+      }
     }
 });
 

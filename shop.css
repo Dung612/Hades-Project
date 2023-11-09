@@ -4,6 +4,7 @@
     justify-content: space-around;
     padding: 0 40px;
     margin-bottom: 40px ;
+    width: 100vw;
 }
 .anhsanpham{
     display: flex;
@@ -19,6 +20,7 @@
     overflow: hidden;
     text-align: center;
     cursor: pointer;
+    margin-bottom: 26px;
 }
 
 
@@ -82,7 +84,7 @@
     text-align: center;
     color: white;
     font-size: 12px;
-    z-index: 100000;
+    z-index: 100;
 }
 .chucnang a{
     text-decoration: none;
@@ -103,12 +105,12 @@
 }
 .selec {
     margin-top: 80px;
-    margin-left: 85%;
+    
     
     
 }
 .selec select{
-    margin: 40px;
+    margin: 44px 32px;
 
     background-color: white;
     color: black;
