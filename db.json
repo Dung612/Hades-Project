@@ -32,9 +32,12 @@
         "categoryId": 1,
         "color": "black",
         "size": "S",
+        "loai": "Áo",
         "anh1":"./accsent/img/dsc05233_f4651fc12ce24ac28d00ff705d483daf_grande.webp",
         "anh2":"./accsent/img/hd_thang_8.webp",
-        "price": 420000
+        "price": 420000 ,
+        "soluong": 20
+
         
 
       },
@@ -44,9 +47,12 @@
         "categoryId": 1,
         "color": "black",
         "size": "M",
+        "loai": "Áo",
         "anh1":"./accsent/img/ao2.webp",
         "anh2":"./accsent/img/anhbgao2.webp",
         "price": 395000
+        ,
+        "soluong": 50
       },
       {
         "id": 3,
@@ -54,9 +60,12 @@
         "categoryId": 1,
         "color": "black",
         "size": "L",
+        "loai": "Áo",
         "anh1":"./accsent/img/ao3.webp",
         "anh2":"./accsent/img/anhbgao3.webp",
         "price": 420000
+        ,
+        "soluong": 40
       },
 
       {
@@ -65,9 +74,11 @@
         "categoryId": 1,
         "color": "black",
         "size": "S",
+        "loai": "Áo",
         "anh1":"./accsent/img/ao4.webp",
         "anh2":"./accsent/img/anhbgao4.webp",
-        "price": 420000
+        "price": 420000,
+        "soluong": 20
       },
 
       {
@@ -76,9 +87,12 @@
         "categoryId": 2,
         "color": "black",
         "size": "S",
+        "loai": "Quần",
         "anh1":"./accsent/img/quan1.webp",
         "anh2":"./accsent/img/bgquan1.webp",
         "price": 450000
+        ,
+        "soluong": 22
         
 
       },
@@ -88,9 +102,11 @@
         "categoryId": 2,
         "color": "black",
         "size": "S",
+        "loai": "Quần",
         "anh1":"./accsent/img/quan2.webp",
         "anh2":"./accsent/img/bgquan2.webp",
-        "price": 750000
+        "price": 750000,
+        "soluong": 32
         
 
       },
@@ -100,9 +116,12 @@
         "categoryId": 2,
         "color": "black",
         "size": "S",
+        "loai": "Quần",
         "anh1":"./accsent/img/quan3.webp",
         "anh2":"./accsent/img/bgquan3.webp",
         "price": 750000
+        ,
+        "soluong": 20
         
 
       },
@@ -112,9 +131,11 @@
         "categoryId": 2,
         "color": "black",
         "size": "S",
+        "loai": "Quần",
         "anh1":"./accsent/img/quan4.webp",
         "anh2":"./accsent/img/bgquan4.webp",
-        "price": 690000
+        "price": 690000,
+        "soluong": 26
         
 
       },
@@ -129,9 +150,11 @@
         "categoryId": 4,
         "color": "black",
         "size": "S",
+        "loai": "Jacket",
         "anh1":"./accsent/img/jk1.webp",
         "anh2":"./accsent/img/bgjk1.webp",
-        "price": 760000
+        "price": 760000,
+        "soluong": 80
       },
       {
         "id": 2,
@@ -139,9 +162,11 @@
         "categoryId": 4,
         "color": "black",
         "size": "S",
+        "loai": "Jacket",
         "anh1":"./accsent/img/jk2.webp",
         "anh2":"./accsent/img/bgjk2.webp",
-        "price": 760000
+        "price": 760000,
+        "soluong":87
       },
       {
         "id": 3,
@@ -149,9 +174,12 @@
         "categoryId": 4,
         "color": "black",
         "size": "S",
+        "loai": "Jacket",
         "anh1":"./accsent/img/jk3.webp",
         "anh2":"./accsent/img/bgjk3.webp",
         "price": 650000
+        ,
+        "soluong": 60
       },
       {
         "id": 4,
@@ -159,9 +187,11 @@
         "categoryId": 4,
         "color": "black",
         "size": "S",
+        "loai": "Jacket",
         "anh1":"./accsent/img/jk4.webp",
         "anh2":"./accsent/img/bgjk4.webp",
-        "price": 720000
+        "price": 720000,
+        "soluong": 120
       }
 
 
@@ -175,36 +205,44 @@
         "id": 1,
         "name": "HINT SHUFFLING BAG",
         "categoryId": 5,
+        "loai": "Túi",
         "anh1":"./accsent/img/tui1.webp",
         "anh2":"./accsent/img/bgtui1.webp",
-        "price": 650000
+        "price": 650000,
+        "soluong": 178
       }
       ,
       {
         "id": 2,
         "name": "ZWART WEEKENDER BAG",
         "categoryId": 5,
+        "loai": "Túi",
         "anh1":"./accsent/img/tui2.webp",
         "anh2":"./accsent/img/bgtui2.webp",
-        "price": 690000
+        "price": 690000,
+        "soluong": 67
       }
       ,
       {
         "id": 3,
         "name": "CURVE CROSSBODY QUITED BAG",
         "categoryId": 5,
+        "loai": "Túi",
         "anh1":"./accsent/img/tui3.webp",
         "anh2":"./accsent/img/bgtui3.webp",
-        "price": 380000
+        "price": 380000,
+        "soluong": 12
       }
       ,
       {
         "id": 4,
         "name": "BLACK BLOCK BACKPACK",
         "categoryId": 5,
+        "loai": "Túi",
         "anh1":"./accsent/img/tui4.webp",
         "anh2":"./accsent/img/bgtui4.webp",
-        "price": 670000
+        "price": 670000,
+        "soluong": 230
       }
 
 
@@ -217,9 +255,12 @@
         "name": "INTERNATIONAL SOCKS",
         "categoryId": 6,
         "color":"black",
+        "loai": "Tất",
         "anh1":"./accsent/img/tat1.webp",
         "anh2":"./accsent/img/bgtat1.webp",
         "price": 90000
+        ,
+        "soluong": 209
       }
       ,
       {
@@ -227,9 +268,11 @@
         "name": "LOGO SOCKS",
         "categoryId": 6,
         "color":"black",
+        "loai": "Tất",
         "anh1":"./accsent/img/tat2.webp",
         "anh2":"./accsent/img/bgtat2.webp",
-        "price": 90000
+        "price": 90000,
+        "soluong": 180
       }
 
 

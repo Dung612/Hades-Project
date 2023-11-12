@@ -202,7 +202,7 @@ try {
             foundProduct = true; // Đánh dấu đã tìm thấy sản phẩm
         }
             if(isNaN(x)){
-                const productElement = document.createElement('div');
+            const productElement = document.createElement('div');
             productElement.className = 'sanpham1 col4s fontbasic';
             const formattedPrice = product.price.toLocaleString('vi-VN');
             productElement.innerHTML = `
@@ -563,7 +563,7 @@ try {
                 indexspcart++;
 
                 // Lấy danh sách tất cả các nút xóa
-                saveCartToLocalStorage(Listgiohang);
+                // saveCartToLocalStorage(Listgiohang);
             });
 
             const btnremovesp = document.querySelectorAll('.closesmall');

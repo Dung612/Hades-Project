@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./fontawesome-free-6.4.0-web/css/all.min.css">
     <title>Admin</title>
 </head>
 <style>
@@ -19,12 +20,15 @@
     header{
         font-size: 12px;
         align-items: center;
+        width: 100%;
         
         
         display: flex;
         justify-content: space-between;
         padding: 22px;
-        background-color: rgba(0, 0, 0, 0.353);
+        background-color: rgba(167, 167, 167);
+        z-index: 1000;
+        position: fixed;
     }
     header h1{
         font-weight: 500;
@@ -34,17 +38,20 @@
         height: 12px;
         width: auto;
     }
-    body{
-        overflow: hidden;
-    }
+
     .contentl{
+        position: fixed;
+        top: 0;
         width: 16%;
         height: 100vh;
-        background-color:  rgba(0, 0, 0, 0.353);
+        background-color:  rgba(167, 167, 167);
+        padding: 80px 0;
     }
     .contentr{
+        margin-left: 16%;
         width: 84%;
-        height: 100vh;
+        height: auto;
+        padding: 160px 0 16px;
     }
     .menuadmin{
         width: 100%;
@@ -78,11 +85,177 @@
     }
 
     .hienthisanpham{
+     
+      padding: 18px;  
+    }
+    .product img{
+        height: 40px;
+        width: 40px;
+        object-fit: cover;
+    } 
+    .table{
         width: 100%;
-        height: 100vh;
-        overflow: scroll;
+        border: 1px solid #ddd;
         
     }
+    .product{
+        text-align: center;
+    }
+    .action-buttons button{
+        padding: 6px;
+        background-color: transparent;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        
+
+        
+    }
+
+    th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+    #searchInput{
+        padding: 8px 12px;
+        width: 280px;
+        border-radius: 8px;
+        margin-left: 18px;
+        border: 1px solid #ddd;
+    }
+    .updateform{
+        position: fixed;
+       top: 0;
+       bottom: 0;
+       right: 0;
+       left: 0;
+       background-color: rgba(0, 0, 0, 0.5);
+       /* display: flex; */
+       justify-content: center;
+       align-items: center;
+       display: none;
+       z-index: 100;
+
+    }
+    .updateform .content{
+        position: relative;
+        border: 2px solid black;
+        width: 400px;
+        height: 560px;
+        background-color: #ddd;
+        padding: 20px;
+    }
+    .updateform .content input{
+        width: 100%;
+        padding: 8px;
+        border-radius: 6px;
+    }
+    .content h4{
+        font-size: 16px;
+        font-weight: 400;
+
+    }
+
+    .updateform button{
+        height: 40px;
+        width: 100%;
+        margin: 14px 0;
+        cursor: pointer;
+    } 
+    .product button{
+        background-color: transparent;
+        border: none;
+        padding: 12px;
+        cursor: pointer;
+    }
+    #uploadForm{
+        display: flex;
+    }
+    #imageInput{
+        width:100% ;
+        border: 1px solid black;
+        background-color: #ddd;
+    }
+    #uploadedImage{
+        display: none;
+         height: 260px;
+          width: 260px;
+        object-fit: cover;
+    }
+    .openform{
+        height: 37.6px;
+        border-radius: 8px;
+        margin-left: 18px;
+        padding: 8px;
+        cursor: pointer;
+        border: 1px solid #ddd;
+    }
+    td{
+        position: relative;
+    }
+    td .fa-pen{
+        position: absolute;
+        right: 8px;
+        bottom: 8px;
+    }
+    .addform{
+        position: fixed;
+       top: 0;
+       bottom: 0;
+       right: 0;
+       left: 0;
+       background-color: rgba(0, 0, 0, 0.5);
+       display: none;
+       justify-content: center;
+       align-items: center;
+       
+       z-index: 1000;
+    }
+    .contentformadd{
+        position: relative;
+        border: 2px solid black;
+        width: 400px;
+        height: 560px;
+        background-color: #ddd;
+        padding: 20px;
+    }
+    .contentformadd input{
+        width: 100%;
+        padding: 8px;
+        border-radius: 6px;
+    }
+    #submitProduct{
+        width: 100px;
+        height: 40px;
+        position: absolute;
+        bottom: 40px;
+        right: 20px;
+        border-radius: 6px;
+        padding: 6px;
+        background-color: #ddd;
+        border: 2px solid black;
+        cursor: pointer;
+    }
+    .contentformadd .btncloseadd{
+        width: 100px;
+        height: 40px;
+        position: absolute;
+        bottom: 40px;
+        right: 140px;
+        border-radius: 6px;
+        padding: 6px;
+        cursor: pointer;
+        border: 2px solid black;
+        text-align: center;
+        background-color: #ddd;
+    }
+
+    
 
 
 </style>
@@ -109,10 +282,42 @@
         </div>
         <div class="contentr">
             <div class="btnaddproduct">
-                <button>+ Thêm sản phẩm</button>
+                
+                <button class="buttonadd">+ Thêm sản phẩm</button>
             </div>
+                
+                <div class="search">
+                    <button class="openform">update ảnh</button>
+                    <input type="text" id="searchInput" placeholder="search">
+                </div>
             <div class="hienthisanpham">
                 <div class="phanloai">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Ảnh</th>
+                                <th>Tên</th>
+                                <th>Giá</th>
+                                <th>Loại</th>
+                                <th>Số lượng</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr class="product">
+                                <td><img src="./accsent/img/ao2.webp" alt="Product Image 1"></td>
+                                <td>Product 1</td>
+                                <td>$20.00 <span>đ</span></td>
+                                <td>Áo</td>
+                                <td>5</td>
+                                <td class="action-buttons">
+                                    <button ><i class="fa-solid fa-pen"></i></button>
+                                    <button ><i class="fa-solid fa-trash"></i></button>
+                                </td>
+                            </tr> -->
+                           
+                            <!-- Thêm các dòng khác tương tự nếu cần -->
+                        </tbody>
 
                 </div>
 
@@ -120,5 +325,402 @@
 
         </div>
     </div>
+    <div class="updateform">
+        
+        <div class="content">
+            
+            <div class="newimg">
+                <h4>Sửa ảnh</h4>
+                <form id="uploadForm">
+                    <input type="file" accept="image/*" id="imageInput" />
+                    <button type="submit">Tải lên</button>
+                </form>
+                <div class="anhxemtruoc" style="width: 100%;display: flex; align-items: center; justify-content: center; ">
+                    <img id="uploadedImage" src="" alt="Ảnh đã tải lên"  >
+                </div>
+
+            </div>
+            <button class="btndone" style="display: none;">Xong</button>
+            <button class="btnclose" >Hủy</button>
+            
+            
+            
+        </div>
+        
+    </div>
+    <div class="addform">
+        <div class="contentformadd">
+            <h2>Nhập thông tin sản phẩm</h2>
+        <form id="productForm">
+            <label for="productName">Tên sản phẩm:</label>
+            <input type="text" id="productName" ><br>
+    
+            <label for="productPrice">Giá sản phẩm:</label>
+            <input type="number" id="productPrice" ><br>
+    
+            <label for="productType">Loại sản phẩm:</label>
+            <input type="text" id="productType" ><br>
+    
+            <label for="productQuantity">Số lượng:</label>
+            <input type="number" id="productQuantity" ><br>
+
+    
+            <button type="button" id="submitProduct">Thêm sản phẩm</button>
+            <div class="btncloseadd" >Hủy</div>
+        </form>
+        </div>
+    </div>
 </body>
+<script>
+        const updateForm = document.querySelector(".updateform");
+        const openform = document.querySelector(".openform");
+        const btnaddproduct = document.querySelector(".buttonadd")
+        const btncloseadd = document.querySelector(".btncloseadd")
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const addform = document.querySelector(".addform");
+            btnaddproduct.addEventListener("click", () => {             
+               addform.style.display = 'flex'
+            })
+            btncloseadd.addEventListener("click", () => {             
+               addform.style.display = 'none'
+            })
+
+            
+            document.getElementById("submitProduct").addEventListener("click", function () {
+                const productName = document.getElementById("productName").value;
+                const productPrice = parseFloat(document.getElementById("productPrice").value);
+                const productType = document.getElementById("productType").value;
+                const productQuantity = parseInt(document.getElementById("productQuantity").value);
+
+                // Kiểm tra thông tin hợp lệ
+                if (productName && !isNaN(productPrice) && productType && !isNaN(productQuantity)) {
+                    // Tạo đối tượng sản phẩm mới
+                    const newProduct = {
+                        name: productName,
+                        price: productPrice,
+                        loai: productType,
+                        soluong: productQuantity
+                    };
+                    currentProducts.push(newProduct);
+                    renderProducts(currentProducts);
+                } else {
+                    alert("Vui lòng nhập thông tin sản phẩm hợp lệ.");
+                }
+
+                // Xóa nội dung các trường input sau khi thêm sản phẩm
+                document.getElementById("productName").value = "";
+                document.getElementById("productPrice").value = "";
+                document.getElementById("productType").value = "";
+                document.getElementById("productQuantity").value = "";
+                addform.style.display = 'none'
+
+            });
+        });
+
+
+
+    let currentProducts = [];
+    function fetchProducts() {
+    return fetch('http://localhost:3000/products')
+        .then(response => response.json())
+        .then(products => {
+            currentProducts = products;
+            return products; // Trả về danh sách sản phẩm
+        })
+        .catch(error => {
+            console.error('Lỗi khi lấy dữ liệu sản phẩm:', error);
+        });
+}
+function renderProducts(products) {
+            let indexspcart = 0
+            const productContainer = document.querySelector('.table tbody');
+            const productContainerimgupdate = document.querySelector('.anhxemtruoc');
+            
+            productContainer.innerHTML = ''; // Xóa dữ liệu cũ trước khi render lại
+
+            products.forEach(product => {
+                
+                const productElement = document.createElement('tr');
+                productElement.className = 'product';
+                const formattedPrice = product.price.toLocaleString('vi-VN');
+                productElement.innerHTML = `
+                    <td><img src="${product.anh1}" alt="Product Image 1"> <button ><i class="updateimage fa-solid fa-pen "  data-index="${indexspcart}"></i></button></td>
+                    <td>${product.name} <button class="updatename" data-index="${indexspcart}"><i class=" fa-solid fa-pen "  ></i></button></td>
+                    <td>${formattedPrice}<span>đ</span><button class="updateprice" data-index="${indexspcart}" ><i class=" fa-solid fa-pen "  ></i></button></td>
+                    <td>${product.loai}<button class="updatetype" data-index="${indexspcart}"><i class=" fa-solid fa-pen"  ></i></button></td>
+                    <td>${product.soluong}</td>
+                    <td class="action-buttons">
+                        <button ><i class="add fa-solid fa-plus"   data-index="${indexspcart}"></i></button>
+
+                        
+                        <button ><i class="delete fa-solid fa-trash" data-index="${indexspcart}"></i></button>
+                    </td>
+                `;
+                productContainer.appendChild(productElement);
+
+                
+
+                indexspcart++;
+
+               
+
+
+
+            });
+            const btndelete = document.querySelectorAll(".delete");
+            
+            // Chuyển NodeList thành mảng
+            const btndeleteArray = Array.from(btndelete);
+            
+
+            btndeleteArray.forEach(btn => {
+                btn.addEventListener('click', function() {
+                // Lấy vị trí (index) của nút xóa trong danh sách nút
+                const index = parseInt(this.getAttribute('data-index'));
+                console.log('Đã xóa');
+                if (index !== -1) {
+                    const product = currentProducts[index];
+                    const quantityToDelete = parseInt(prompt('Nhập số lượng bạn muốn xóa:', 0));
+                    if (!isNaN(quantityToDelete) && quantityToDelete >= 0 && quantityToDelete <= product.soluong) {
+                        // Kiểm tra số lượng và cập nhật mảng sản phẩm
+                        if (quantityToDelete === product.soluong) {
+                            // Nếu số lượng cần xóa bằng số lượng tồn kho, xóa sản phẩm
+                            // products.splice(index, 1);
+                            product.soluong -= quantityToDelete;
+                        } else {
+                            
+                            product.soluong -= quantityToDelete;
+                        }
+                        
+                        renderProducts(currentProducts);
+                    } else {
+                        alert('Số lượng không hợp lệ.');
+                    }
+                }
+            });
+    });
+        const btnadd = document.querySelectorAll(".add");
+        const btnaddArray = Array.from(btnadd);
+
+        btnaddArray.forEach(btn => {  
+        btn.addEventListener('click', function() {
+
+            // Lấy vị trí (index) của nút thêm trong danh sách nút
+            const index = parseInt(this.getAttribute('data-index'));
+
+            if (index !== -1) {
+                const product = currentProducts[index];
+
+                if (product) { // Kiểm tra xem product có tồn tại không
+                    const quantityToadd = parseInt(prompt('Nhập số lượng bạn muốn thêm:', 0));
+                    if (!isNaN(quantityToadd) && quantityToadd >= 0) {
+                        // Tăng số lượng sản phẩm
+                        product.soluong += quantityToadd;
+
+                        // Cập nhật giao diện sau khi thêm sản phẩm hoặc cập nhật số lượng tồn kho
+                        renderProducts(currentProducts);
+                    }
+                } else {
+                    alert('Sản phẩm không tồn tại.');
+                }
+            }
+            console.log('Đã thêm');
+        });
+    });
+    const btnupdatename = document.querySelectorAll(".updatename")
+    const btnupdateprice = document.querySelectorAll(".updateprice")
+    const btnupdatetype = document.querySelectorAll(".updatetype")
+
+
+    const btnupdateimg = document.querySelectorAll(".updateimage")
+
+
+
+    const btnupdatenameArray = Array.from(btnupdatename);
+    const btnupdatepriceArray = Array.from(btnupdateprice);
+    const btnupdatetypeArray = Array.from(btnupdatetype);
+    const btnupdateimgArray = Array.from(btnupdateimg);
+
+    
+    // const newName = document.querySelector(".newname");
+    // const newPrice = document.querySelector(".newprice");
+    // const newType = document.querySelector(".newtype");
+                
+    const imageInput = document.getElementById("imageInput");
+    const uploadedImage = document.getElementById('uploadedImage');
+
+
+    btnupdatenameArray.forEach(btn => {  
+        btn.addEventListener('click', function() {
+
+            // Lấy vị trí (index) của nút thêm trong danh sách nút
+            const index = parseInt(this.getAttribute('data-index'));
+
+            if (index !== -1) {
+                const product = currentProducts[index];
+
+                if (product) { // Kiểm tra xem product có tồn tại không
+                    const newname = prompt('Nhập tên bạn muốn đổi:', '');
+                    if (newname!=='') {
+                        // Tăng số lượng sản phẩm
+                        product.name = newname;
+
+                        // Cập nhật giao diện sau khi thêm sản phẩm hoặc cập nhật số lượng tồn kho
+                        renderProducts(currentProducts);
+                    }
+                } else {
+                    alert('error.');
+                }
+            }
+            console.log('Đã sửa');
+        });
+    });
+
+    btnupdatepriceArray.forEach(btn => {  
+        btn.addEventListener('click', function() {
+
+            // Lấy vị trí (index) của nút thêm trong danh sách nút
+            const index = parseInt(this.getAttribute('data-index'));
+
+            if (index !== -1) {
+                const product = currentProducts[index];
+
+                if (product) { // Kiểm tra xem product có tồn tại không
+                    const newprice = parseInt(prompt('Nhập giá bạn muốn đổi:', 0));
+                    if (newprice!=='') {
+                        // Tăng số lượng sản phẩm
+                        product.price = newprice;
+
+                        // Cập nhật giao diện sau khi thêm sản phẩm hoặc cập nhật số lượng tồn kho
+                        renderProducts(currentProducts);
+                    }
+                } else {
+                    alert('error.');
+                }
+            }
+            console.log('Đã sửa');
+        });
+    });
+
+    btnupdatetypeArray.forEach(btn => {  
+        btn.addEventListener('click', function() {
+
+            // Lấy vị trí (index) của nút thêm trong danh sách nút
+            const index = parseInt(this.getAttribute('data-index'));
+
+            if (index !== -1) {
+                const product = currentProducts[index];
+
+                if (product) { // Kiểm tra xem product có tồn tại không
+                    const newtype =prompt('Nhập loại bạn muốn đổi:', '');
+                    if (newtype!=='') {
+                        // Tăng số lượng sản phẩm
+                        product.loai = newtype;
+
+                        // Cập nhật giao diện sau khi thêm sản phẩm hoặc cập nhật số lượng tồn kho
+                        renderProducts(currentProducts);
+                    }
+                } else {
+                    alert('error.');
+                }
+            }
+            console.log('Đã sửa');
+        });
+    });
+
+
+
+    btnupdateimgArray.forEach(btn => {  
+        btn.addEventListener('click', function() {
+
+            if(uploadedImage.style.display === 'block'){
+                // Lấy vị trí (index) của nút thêm trong danh sách nút
+            const index = parseInt(this.getAttribute('data-index'));
+            const indextest = 0
+            if (index !== -1) {
+                const product = currentProducts[index];
+                
+                    if (product) { // Kiểm tra xem product có tồn tại không
+                    
+                    product.anh1 = uploadedImage.src;
+                    renderProducts(currentProducts);
+           
+                    } else {
+                        alert('error.');
+                    }
+                
+            }
+            
+            
+            console.log('Đã sửa');
+            }else{
+                alert('vui lòng update ảnh trước')
+            }
+        })
+    });
+
+}
+const doneButton = document.querySelector(".btndone");
+doneButton.addEventListener("click", () => {
+                      
+                        
+                    
+                        
+                      updateForm.style.display = "none";
+                     
+                      doneButton.style.display = 'none'
+              })
+openform.addEventListener("click", () => {             
+    updateForm.style.display = 'flex'
+})
+const btnclose = document.querySelector(".btnclose")
+btnclose.addEventListener("click", () => {             
+    updateForm.style.display = 'none'
+    
+})
+uploadForm.addEventListener('submit', (e) => {
+         e.preventDefault();
+
+        const file = imageInput.files[0];
+         if (file) {
+         const reader = new FileReader();
+
+                                                reader.onload = function (e) {
+                                                    uploadedImage.src = e.target.result;
+                                                    uploadedImage.style.display = 'block';
+                                                };
+
+                                                reader.readAsDataURL(file);
+                                                
+                                            }
+                        
+                        
+                        doneButton.style.display = 'block'
+                        btnclose.style.display = 'none'
+                    });
+
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+            const filteredProducts = currentProducts.filter(product => {
+                return (
+                    product.name.toLowerCase().includes(searchTerm) ||
+                    product.loai.toLowerCase().includes(searchTerm)
+                );
+            });
+
+            renderProducts(filteredProducts);
+        }
+
+        // Gọi hàm tìm kiếm khi người dùng nhập
+        document.getElementById('searchInput').addEventListener('input', searchProducts);
+
+
+        
+        // Gọi hàm fetch và render sản phẩm ban đầu
+        fetchProducts().then(renderProducts);
+        
+
+</script>
 </html>
