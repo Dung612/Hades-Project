@@ -140,142 +140,194 @@ function fetchProducts() {
         });
 }
 
+renderproductshop()
+const sortSelect = document.getElementById('sortSelect');
 
-try {
-    fetchProducts().then(products => {
-        const productContainer = document.querySelector('.sanpham');
-        let foundProduct = false;
-         // Biến để kiểm tra xem đã tìm thấy sản phẩm phù hợp chưa
-         products.sort((a, b) => a.price - b.price);
-        products.forEach(product => { 
-            
-            if( product.categoryId === x){
-                const productElement = document.createElement('div');
-            productElement.className = 'sanpham1 col4s fontbasic';
-            const formattedPrice = product.price.toLocaleString('vi-VN');
-            productElement.innerHTML = `
-                    
-            <div class="anhsanpham">
-            <img src="${product.anh1}" alt="">
-            <a class="image-link" href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}"></a>
-            <img class="anh2" src="${product.anh2}" alt="">
-            <div class="chucnang">
-                <div class="buy" onclick="redirectToThanhToan()">MUA NGAY</div>
-                <div class="add" onclick="showCart()" >THÊM VÀO GIỎ</div>
-            </div>
-            </div>
-            <div class="tensanpham"><a href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}">${product.name}</a></div>
-            <div class="price">${formattedPrice} <span>đ</span></div>
-                
-            `;
-            productContainer.appendChild(productElement);
-            const btnAddSpElements = productElement.querySelectorAll('.add');
-
-            // Xử lý các phần tử có class "add" trong sản phẩm hiện tại
-            btnAddSpElements.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    Listgiohang.push(product)
-                   
-                    console.log('Đã thêm sản phẩm vào giỏ hàng');
-                    Listgiohang.forEach(item => {
-                        console.log(item);
-                     
-                        renderCartProducts(Listgiohang, contentElement);
-                        updateTotalPrice(Listgiohang);
-                        
-                        
-                    });
-                    
-                });
-            });
-
-            btnAddSpElements.forEach(addElement => {
-              
-                const linkElement = addElement.querySelector('a');
-                if (linkElement) {
-                   
-
-                    const textContent = linkElement.textContent;
-                    addElement.textContent = textContent;
-                }
-            });
-            foundProduct = true; // Đánh dấu đã tìm thấy sản phẩm
-        }
-            if(isNaN(x)){
-            const productElement = document.createElement('div');
-            productElement.className = 'sanpham1 col4s fontbasic';
-            const formattedPrice = product.price.toLocaleString('vi-VN');
-            productElement.innerHTML = `
-                
-                    <div class="anhsanpham">
-                        <img src="${product.anh1}" alt="">
-                        <a class="image-link" href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}"></a>
-                        <img class="anh2" src="${product.anh2}" alt="">
-                        <div class="chucnang">
-                            <div class="buy" onclick="redirectToThanhToan()">MUA NGAY</div>
-                            <div class="add" onclick="showCart()" >THÊM VÀO GIỎ</div>
-                        </div>
-                    </div>
-                    <div class="tensanpham"><a href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}">${product.name}</a></div>
-                    <div class="price">${formattedPrice} <span>đ</span></div>
-                
-            `;
-            productContainer.appendChild(productElement);
-            
-            const btnAddSpElements = productElement.querySelectorAll('.add');
-
-            // Xử lý các phần tử có class "add" trong sản phẩm hiện tại
-            btnAddSpElements.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    Listgiohang.push(product)
-                    
-                    
-                    console.log('Đã thêm sản phẩm vào giỏ hàng');
-                    
-                    
-                    Listgiohang.forEach(item => {
-                        console.log(item);
-                        
-                        renderCartProducts(Listgiohang, contentElement);
-                        updateTotalPrice(Listgiohang);
-                        
-                        
-                    });
-                    
-                }); foundProduct = true; // Đánh dấu đã tìm thấy sản phẩm
-            });
-
-            btnAddSpElements.forEach(addElement => {
-              
-                const linkElement = addElement.querySelector('a');
-                if (linkElement) {
-                   
-
-                    const textContent = linkElement.textContent;
-                    addElement.textContent = textContent;
-                }
-            });
-            }
-            
-        });
-        if (!foundProduct ) {
-            const emptyCategoryElement = document.createElement('div');
-            emptyCategoryElement.className = 'empty-category';
-            emptyCategoryElement.textContent = 'Chưa có sản phẩm nào trong danh mục này';
-            productContainer.appendChild(emptyCategoryElement);
-        }
-    })
-    .catch(error => console.error('Lỗi:', error));
-    console.log('productId:', productIds);
-    console.log('categoryId:', categoryIds);
-    console.log('y:',y);
-    console.log('x:',x);
-  
-} catch (error) {
-    
-  // Xử lý lỗi ở đây
-  console.error('Đã xảy ra lỗi:253', error.message);
+try{
+    sortSelect.addEventListener('change', function() {
+        const selectedValue = this.value;
+        renderproductshop()
+        console.log('Selected Value:', selectedValue);
+        
+        // Bạn có thể thực hiện các hành động khác dựa trên giá trị đã chọn ở đây
+    });
 }
+catch(error){
+    console.log('error 156 ')
+}
+
+function renderproductshop(){
+    try {
+        fetchProducts().then(products => {
+            const productContainer = document.querySelector('.sanpham');
+            let foundProduct = false;
+            
+                const selectedValue = sortSelect.value;
+            
+             // Biến để kiểm tra xem đã tìm thấy sản phẩm phù hợp chưa
+            try{
+                if (selectedValue === 'increase') {
+                    products.sort((a, b) => a.price - b.price);
+                } else if (selectedValue === 'decrease') {
+                    products.sort((a, b) => b.price - a.price);
+                }
+                else if (selectedValue === 'oldest') {
+                    products.sort((a, b) => a.date - b.date);
+                }
+                else if (selectedValue === 'newest') {
+                    products.sort((a, b) => b.date - a.date);
+                }
+                else if (selectedValue === 'bestseller') {
+                    
+                }
+            }catch(error){
+                console.log('error 186 ')
+            }
+            productContainer.innerHTML = '';
+            products.forEach(product => { 
+                
+                if( product.categoryId === x){
+                    const productElement = document.createElement('div');
+                productElement.className = 'sanpham1 col4s fontbasic';
+                const formattedPrice = product.price.toLocaleString('vi-VN');
+                productElement.innerHTML = `
+                        
+                <div class="anhsanpham">
+                <img src="${product.anh1}" alt="">
+                <a class="image-link" href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}"></a>
+                <img class="anh2" src="${product.anh2}" alt="">
+                <div class="chucnang">
+                    <div class="buy" onclick="redirectToThanhToan()">MUA NGAY</div>
+                    <div class="add" onclick="showCart()" >THÊM VÀO GIỎ</div>
+                </div>
+                </div>
+                <div class="tensanpham"><a href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}">${product.name}</a></div>
+                <div class="price">${formattedPrice} <span>đ</span></div>
+                    
+                `;
+                productContainer.appendChild(productElement);
+                const btnAddSpElements = productElement.querySelectorAll('.add');
+    
+                // Xử lý các phần tử có class "add" trong sản phẩm hiện tại
+                btnAddSpElements.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const existingProduct = Listgiohang.find(item => item.id === product.id && item.categoryid === product.categoryid);
+                        if (existingProduct) {
+                            // Nếu sản phẩm đã tồn tại, tăng giá trị của "soluong" lên 1
+                            existingProduct.soluongcart += 1;
+                        } else {
+                            product.soluongcart = 1;
+                        Listgiohang.push(product)
+                        }
+                        console.log('Đã thêm sản phẩm vào giỏ hàng');
+                        Listgiohang.forEach(item => {
+                            console.log(item);
+                         
+                            renderCartProducts(Listgiohang, contentElement);
+                            updateTotalPrice(Listgiohang);
+                            
+                            
+                        });
+                        
+                    });
+                });
+    
+                btnAddSpElements.forEach(addElement => {
+                  
+                    const linkElement = addElement.querySelector('a');
+                    if (linkElement) {
+                       
+    
+                        const textContent = linkElement.textContent;
+                        addElement.textContent = textContent;
+                    }
+                });
+                foundProduct = true; // Đánh dấu đã tìm thấy sản phẩm
+            }
+                if(isNaN(x)){
+                const productElement = document.createElement('div');
+                productElement.className = 'sanpham1 col4s fontbasic';
+                const formattedPrice = product.price.toLocaleString('vi-VN');
+                productElement.innerHTML = `
+                    
+                        <div class="anhsanpham">
+                            <img src="${product.anh1}" alt="">
+                            <a class="image-link" href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}"></a>
+                            <img class="anh2" src="${product.anh2}" alt="">
+                            <div class="chucnang">
+                                <div class="buy" onclick="redirectToThanhToan()">MUA NGAY</div>
+                                <div class="add" onclick="showCart()" >THÊM VÀO GIỎ</div>
+                            </div>
+                        </div>
+                        <div class="tensanpham"><a href="../Hades-Project/product-Infor.html?productId=${product.id}&categoryId=${product.categoryId}">${product.name}</a></div>
+                        <div class="price">${formattedPrice} <span>đ</span></div>
+                    
+                `;
+                productContainer.appendChild(productElement);
+                
+                const btnAddSpElements = productElement.querySelectorAll('.add');
+    
+                // Xử lý các phần tử có class "add" trong sản phẩm hiện tại
+                btnAddSpElements.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const existingProduct = Listgiohang.find(item => item.id === product.id && item.categoryid === product.categoryid);
+                        if (existingProduct) {
+                            
+                            existingProduct.soluongcart += 1;
+                        } else {
+                            product.soluongcart = 1;
+                        Listgiohang.push(product)
+                        }
+                        
+                        
+                        console.log('Đã thêm sản phẩm vào giỏ hàng');
+                        
+                        
+                        Listgiohang.forEach(item => {
+                            console.log(item);
+                            
+                            renderCartProducts(Listgiohang, contentElement);
+                            updateTotalPrice(Listgiohang);
+                            
+                            
+                        });
+                        
+                    }); foundProduct = true; // Đánh dấu đã tìm thấy sản phẩm
+                });
+    
+                btnAddSpElements.forEach(addElement => {
+                  
+                    const linkElement = addElement.querySelector('a');
+                    if (linkElement) {
+                       
+    
+                        const textContent = linkElement.textContent;
+                        addElement.textContent = textContent;
+                    }
+                });
+                }
+                
+            });
+            if (!foundProduct ) {
+                const emptyCategoryElement = document.createElement('div');
+                emptyCategoryElement.className = 'empty-category';
+                emptyCategoryElement.textContent = 'Chưa có sản phẩm nào trong danh mục này';
+                productContainer.appendChild(emptyCategoryElement);
+            }
+        })
+        .catch(error => console.error('Lỗi:', error));
+        console.log('productId:', productIds);
+        console.log('categoryId:', categoryIds);
+        console.log('y:',y);
+        console.log('x:',x);
+      
+    } catch (error) {
+        
+      // Xử lý lỗi ở đây
+      console.error('Đã xảy ra lỗi:253', error.message);
+    }
+}
+
 
 
 
@@ -365,7 +417,14 @@ try {
             // Xử lý các phần tử có class "add" trong sản phẩm hiện tại
             btnAddSpElements.forEach(btn => {
                 btn.addEventListener('click', function() {
+                    const existingProduct = Listgiohang.find(item => item.id === product.id && item.categoryid === product.categoryid);
+                    if (existingProduct) {
+                       
+                        existingProduct.soluongcart += 1;
+                    } else {
+                        product.soluongcart = 1;
                     Listgiohang.push(product)
+                    }
                     
                     console.log('Đã thêm sản phẩm vào giỏ hàng');
                     Listgiohang.forEach(item => {
@@ -484,7 +543,7 @@ try {
                             <div class="name">${product.name}</div>
                             <div class="size">ĐEN / <span>${product.size}</span></div>
                             <div class="price">
-                                <div class="soluong">1</div>
+                                <div class="soluong">${product.soluongcart}</div>
                                 <div class="gia">${formattedPrice}đ</div>
                             </div>
                         </div>
@@ -509,8 +568,16 @@ try {
                     const index = parseInt(this.getAttribute('data-index'));
             
                     if (index !== -1) {
+                        const product = Listgiohang[index];
+                        // Giảm giá trị của "soluongcart"
+                        if (product.soluongcart > 1) {
+                            product.soluongcart -= 1;
+                        } else {
+                            // Nếu "soluongcart" bằng 1, xóa sản phẩm khỏi giỏ hàng
+                            Listgiohang.splice(index, 1);
+            }
                         // Sử dụng hàm splice để xóa sản phẩm tại vị trí index khỏi danh sách
-                        Listgiohang.splice(index, 1);
+                        
                         
                         console.log('Đã xóa');
                         console.log(index);
@@ -601,7 +668,11 @@ try {
         let total = 0;
     
         Listgiohang.forEach(product => {
-            total += product.price;
+            if (product.soluongcart > 1) {
+                total += product.price * product.soluongcart;
+            } else {
+                total += product.price;
+            }
         });
     
         const spgiohang = document.querySelector('.spgiohang');

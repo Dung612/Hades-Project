@@ -36,7 +36,8 @@
         "anh1":"./accsent/img/dsc05233_f4651fc12ce24ac28d00ff705d483daf_grande.webp",
         "anh2":"./accsent/img/hd_thang_8.webp",
         "price": 420000 ,
-        "soluong": 20
+        "soluong": 20,
+        "soluongcart":0
 
         
 
@@ -53,6 +54,8 @@
         "price": 395000
         ,
         "soluong": 50
+        ,
+        "soluongcart":0
       },
       {
         "id": 3,
@@ -65,7 +68,8 @@
         "anh2":"./accsent/img/anhbgao3.webp",
         "price": 420000
         ,
-        "soluong": 40
+        "soluong": 40,
+        "soluongcart":0
       },
 
       {
@@ -78,7 +82,8 @@
         "anh1":"./accsent/img/ao4.webp",
         "anh2":"./accsent/img/anhbgao4.webp",
         "price": 420000,
-        "soluong": 20
+        "soluong": 20,
+        "soluongcart":0
       },
 
       {
@@ -92,7 +97,8 @@
         "anh2":"./accsent/img/bgquan1.webp",
         "price": 450000
         ,
-        "soluong": 22
+        "soluong": 22,
+        "soluongcart":0
         
 
       },
@@ -106,7 +112,8 @@
         "anh1":"./accsent/img/quan2.webp",
         "anh2":"./accsent/img/bgquan2.webp",
         "price": 750000,
-        "soluong": 32
+        "soluong": 32,
+        "soluongcart":0
         
 
       },
@@ -121,7 +128,8 @@
         "anh2":"./accsent/img/bgquan3.webp",
         "price": 750000
         ,
-        "soluong": 20
+        "soluong": 20,
+        "soluongcart":0
         
 
       },
@@ -135,7 +143,8 @@
         "anh1":"./accsent/img/quan4.webp",
         "anh2":"./accsent/img/bgquan4.webp",
         "price": 690000,
-        "soluong": 26
+        "soluong": 26,
+        "soluongcart":0
         
 
       },
@@ -154,7 +163,8 @@
         "anh1":"./accsent/img/jk1.webp",
         "anh2":"./accsent/img/bgjk1.webp",
         "price": 760000,
-        "soluong": 80
+        "soluong": 80,
+        "soluongcart":0
       },
       {
         "id": 2,
@@ -166,7 +176,8 @@
         "anh1":"./accsent/img/jk2.webp",
         "anh2":"./accsent/img/bgjk2.webp",
         "price": 760000,
-        "soluong":87
+        "soluong":87,
+        "soluongcart":0
       },
       {
         "id": 3,
@@ -179,7 +190,8 @@
         "anh2":"./accsent/img/bgjk3.webp",
         "price": 650000
         ,
-        "soluong": 60
+        "soluong": 60,
+        "soluongcart":0
       },
       {
         "id": 4,
@@ -191,7 +203,8 @@
         "anh1":"./accsent/img/jk4.webp",
         "anh2":"./accsent/img/bgjk4.webp",
         "price": 720000,
-        "soluong": 120
+        "soluong": 120,
+        "soluongcart":0
       }
 
 
@@ -209,7 +222,8 @@
         "anh1":"./accsent/img/tui1.webp",
         "anh2":"./accsent/img/bgtui1.webp",
         "price": 650000,
-        "soluong": 178
+        "soluong": 178,
+        "soluongcart":0
       }
       ,
       {
@@ -220,7 +234,8 @@
         "anh1":"./accsent/img/tui2.webp",
         "anh2":"./accsent/img/bgtui2.webp",
         "price": 690000,
-        "soluong": 67
+        "soluong": 67,
+        "soluongcart":0
       }
       ,
       {
@@ -231,7 +246,8 @@
         "anh1":"./accsent/img/tui3.webp",
         "anh2":"./accsent/img/bgtui3.webp",
         "price": 380000,
-        "soluong": 12
+        "soluong": 12,
+        "soluongcart":0
       }
       ,
       {
@@ -242,7 +258,8 @@
         "anh1":"./accsent/img/tui4.webp",
         "anh2":"./accsent/img/bgtui4.webp",
         "price": 670000,
-        "soluong": 230
+        "soluong": 230,
+        "soluongcart":0
       }
 
 
